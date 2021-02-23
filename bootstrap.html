@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Bootstrap</h1>
+    <h2>Front End Framework</h2>
+    <p>Bootstrap is one of the most well-known front end UI frameworks<br>
+    free, open-source collection of CSS code<br>
+    can make responsive and mobile-first designs easily</p>
+    <h2>Bootstrap Grid</h2>
+    <p>creates a grid layout on a page to control where elements are placed</p>
+    <ul>
+        <li>need to have &lt;meta name="viewport"&gt; and &lt;link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/&gt;</li>
+        <li>need divs with classes: container, row, and col</li>
+        <ul class="no-list-style">
+            <li>&lt;div class="container"&gt;</li>
+            <ul class="no-list-style">
+                <li>&lt;div class="row"&gt;</li>
+                <ul class="no-list-style">
+                    <li>&lt;div class="col"&gt;content&lt;div&gt;</li>
+                </ul>
+                <li>&lt;/div&gt;</li>
+            </ul>
+            <li>&lt;/div&gt;</li>
+        </ul>
+        <li>all content must be inside columns</li>
+        <li>container class is fixed to viewport size and only changes when hits breakpoints</li>
+        <ul>
+            <li>can use container-fluid to expand to full page and changes fluidly</li>
+        </ul>
+        <li>each row can have up to 12 columns</li>
+        <ul>
+            <li>col-#: specifies how many columns you want</li>
+            <ul class="no-list-style">
+                <li>&lt;div class="row"&gt;</li>
+                <ul class="no-list-style">
+                    <li>&lt;div class="col-4"&gt;4 columns&lt;div&gt;</li>
+                    <li>&lt;div class="col-8"&gt;8 columns&lt;div&gt;</li>
+                </ul>
+                <li>&lt;/div&gt;</li>
+            </ul>
+            <li>can also use col-4 and col OR add multiple cols and bootstrap will automatically fill out the row</li>
+            <li>column sizes automatically adjust when viewport size changes</li>
+        </ul>
+    </ul>
+    <h3>Breakpoints</h3>
+    <table>
+        <thead>
+            <tr>
+                <td>Size</td>
+                <td>Viewport Width</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>(XS)</td>
+                <td>&lt;576px</td>
+            </tr>
+            <tr>
+                <td>SM</td>
+                <td>&GreaterEqual;576px</td>
+            </tr>
+            <tr>
+                <td>MD</td>
+                <td>&GreaterEqual;768px</td>
+            </tr>
+            <tr>
+                <td>LG</td>
+                <td>&GreaterEqual;992px</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>&GreaterEqual;1200px</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <li>XS is default</li>
+        <li>if want to have different column widths for different viewpoints can use breakpoints</li>
+        <ul>
+            <li>ex. 3 columns and want middle column to be larger in medium viewport and up</li>
+            <li>class="col col-md-6"</li>
+            <li>will be 6 columns for medium, large and extra large, but 4 columns for small and extra small</li>
+            <li>ex. want 8 columns in large and up</li>
+            <li>class="col col-md-6 col-lg-8"</li>
+        </ul>
+    </ul>
+    <h3>Bootstrap Classes</h3>
+    <ul>
+        <li>order-* classes: change the order of columns in a row</li>
+        <ul>
+            <li>Example: order-sm-last</li>
+            <ul>
+                <li>for breakpoints small and larger, the class will be ordered last in the row</li>
+            </ul>
+        </ul>
+        <li>offset-* classes: force a boostrap column to the right</li>
+        <ul>
+            <li>Example: offset-1</li>
+        </ul>
+        <li>jumbotron: used to call extra attention to a section that shows key messages</li>
+        <li>list-unstyled: removes default listitem styles (ex. bullet points)</li>
+    </ul>
+</body>
+</html>

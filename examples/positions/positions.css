@@ -1,0 +1,52 @@
+div {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    margin: 10px;
+    display: inline-block;
+}
+#static div {
+    background-color: purple;
+}
+#static #middle {
+    background-color: orchid;
+    position: static;
+    top: 50px;
+    right: 50px;
+}
+#relative div {
+    background-color: green;
+}
+#relative #middle {
+    background-color: palegreen;
+    position: relative;
+    top: 50px;
+    right: 50px;
+}
+#absolute div {
+    background-color: blue;
+}
+#absolute #middle {
+    background-color: lightblue;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
+#fixed div {
+    background-color: red;
+}
+#fixed #middle {
+    background-color: lightcoral;
+    position: fixed;
+    top: 50px;
+    right: 150px;
+}
+#sticky div {
+    background-color:orange;
+}
+#sticky #middle {
+    background-color: lightsalmon;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1px;
+}

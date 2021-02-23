@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Javascript</h1>
+    <nav>
+        <ul>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#functions">Functions</a></li>
+            <li><a href="#condif">Conditional Statements: If</a></li>
+            <li><a href="#operators">Operators</a> </li>
+            <li><a href="#condswitch">Conditional Statements: Switch</a></li>
+            <li><a href="#while">While Loops</a> </li>
+            <li><a href="#scope">Scope</a> </li>
+            <li><a href="#arrays">Arrays</a> </li>
+            <li><a href="#forloop">For Loops</a></li>
+            <li><a href="#strings">Strings</a></li>
+            <li><a href="#dom">The DOM</a></li>
+            <li><a href="#events">Events</a></li>
+        </ul>
+    </nav>
+    <p>Can write Javascript in HTML using &lt;script&gt;&lt;/script&gt; tags in body<br> or connect Javascript file &lt;script src = "js/file.js"&gt;&lt;/script&gt;<br>in HTML can have onclick button to run JavaScript</p>
+    <h2 id="variables">Variables</h2>
+    <p>A named container for some value ex. label for a box</p>
+    <h3>Data Types</h3>
+    <ul>
+        <li>Numbers: can be positive, negative, whole, decimal</li>
+        <li>Strings: characters inside single or double quotes</li>
+        <ul>
+            <li>Numbers can be used in strings but will be considered text not math symbols</li>
+        </ul>
+        <li>Booleans: values are either true or false (no quotes)</li>
+        <li>Null: empty/non-existent value, intentional absence of a value</li>
+        <ul>
+            <li>only one possible value- value of null</li>
+        </ul>
+        <li>Undefined: value given to variables that have been declared but not initialized</li>
+        <ul>
+            <li>only one possible value- value of undefined</li>
+        </ul>
+        <li>Function can also return undefined</li>
+    </ul>
+    <h3>Variable Declaration: Let</h3>
+    <ul>
+        <li>Declare/create a variable using the let keyword</li>
+        <ul>
+            <li>let myScore;</li>
+            <ul>
+                <li>using a semicolon terminates statements</li>
+            </ul>
+            <li>statement instructs computer to "create a variable named myScore"</li>
+            <li>computer will give it a default value of undefined</li>
+        </ul>
+    </ul>
+    <h3>Variable Initialization & Assignment</h3>
+    <ul>
+        <li>Assignment operator (=): declare a variable and assign a value at the same time</li>
+        <ul>
+            <li>let myScore = 1055;</li>
+            <li>myScore has a value of 1055</li>
+        </ul>
+        <li>Initialze: the first time you assign a value to a variable</li>
+    </ul>
+    <h3>Variable Reassignment</h3>
+    <ul>
+        <li>Reassign: use the variable name, the assignment operator, and a new value (do not use let again)</li>
+        <ul>
+            <li>let myScore = 1055;</li>
+            <li>myScore = 1056;</li>
+            <li>myScore has a value of 1056</li>
+        </ul>
+    </ul>
+    <h3>Variable Declaration: Const</h3>
+    <ul>
+        <li>Const stands for constant</li>
+        <li>must initialize a const variable when you declare it</li>
+        <li>cannot reassign a const variable</li>
+        <li>const playerName="Luigi";</li>
+    </ul>
+    <h3>Const vs Let</h3>
+    <ul>
+        <li>Use let for variables where the values could be reassigned</li>
+        <ul>
+            <li>ex. the score in a game</li>
+            <li>let score = 0;</li>
+        </ul>
+        <li>Use const for variables where the values will not be reassigned</li>
+        <ul>
+            <li>ex. the players name in a game</li>
+            <li>const playerName="Luigi";</li>
+        </ul>
+        <li>let and const introduced in 2015, before was one variable (var)</li>
+    </ul>
+    <h2 id="functions">Functions</h2>
+    a way to write reuseable code <br>
+    can write code in one place and use it elsewhere as many times as you like
+    <ul>
+        <li>2 types: built-in functions ex. alert() and functions we make ourselves</li>
+    </ul>
+    <h3>Defining a Function</h3>
+    <ul>
+        <li>one way to define/create a function is with a function declaration</li>
+        <ul>
+            <li> function sayHello() { <br> ...some code... <br>
+            }
+            </li>
+            <li>doesn't automatically run when defined/declared</li>
+            <ul>
+                <li>sayHello(argument);</li>
+            </ul>
+            <li>in this case, no outside values are needed, so parameter list is empty</li>
+        </ul>
+        <li>parantheses after the function name contains the parameter list</li>
+        <li>Parameter list: used to pass values into the function, if needed</li>
+    </ul>
+    <h3>Calling a Function</h3>
+    defining a function does not call (run) the function
+    <ul>
+        <li>in HTML, can call a function with the onclick event handler</li>
+        <li>in JavaScript, use function name followed by parentheses</li>
+        <ul>
+            <li> sayHello();</li>
+            <li>since the parameter list is empty for function definition, the argument list is also empty</li>
+        </ul>
+        <li>parantheses in a function call contain the argument list</li>
+        <li>Argument list: parallels the function declaration/definition's parameter list</li>
+    </ul>
+    <h3>Function Parameters & Arguments</h3>
+    <ul>
+        <li>Use parameters and arguments to pass data from outside a function into a function</li>
+        <ul>
+            <li>function sayWord(word) { <br>alert(word); <br>}</li>
+            <li>parameter list is 1 local variable named word</li>
+        </ul>
+        <li>when called, function will automatically declare local variables based on its parameter list</li>
+        <li>variable doesn't need to be declared with let or const, it only exists inside the function, and it will be automatically deleted when the function ends</li>
+        <li>name doesn't need to be unique within the document, only within the function</li>
+        <li>local variables only exist within code block; can't access from outside it; can also be created using let/const</li>
+    </ul>
+    <ul>
+        <li>When a function is called, the variables declared inside the function from the parameter list receive their values from the function call's argument list</li>
+        <li>assignment is based on order of appearance in the list</li>
+        <ul>
+            <li><em>Function declaration:</em></li>
+            <li>function getArea(width, length) { <br>alert(width*length);<br>}</li>
+        </ul>
+        <br>
+        <ul>
+            <li><em>Function call:</em></li>
+            <li>getArea(3,4)</li>
+        </ul>
+        <br>
+        <ul>
+            <li>width=3, length=4, will show alert is 12</li>
+        </ul>
+        <li>Summary: function parameters define the names of variables declared locally inside the function, whose values are provided from outside of the function</li>
+        <li>Summary: function arguments are used in function calls to provide those values</li>
+    </ul>
+    <h3>Function Return Values</h3>
+    <ul>
+        <li>functions always return a single value, if not provided, then returns the value of undefined</li>
+        <li>Return: returns a value to where the function was called where it can be used right away or stored inside a variable for later use</li>
+        <ul>
+            <li><em>Function declaration:</em></li>
+            <li>function getArea(width, length) { <br>return width*length;<br>}</li>
+        </ul>
+        <br>
+        <ul>
+            <li><em>Function call:</em></li>
+            <li>let area = getArea(3,4)</li>
+            <li>alert(area);</li>
+        </ul>
+    </ul>
+    <h3>Naming Functions and Variables</h3>
+    <ul>
+        <li>camelCase: use lower case first letter, upper case for any additional words</li>
+        <ul>
+            <li>ex. studentFirstName</li>
+        </ul>
+        <li>SCREAMING_SNAKE_CASE: custom variables not meant to be set or changed during a program's execution</li>
+        <ul>
+            <li>ex. const MAX_ITEMS = 10;</li>
+        </ul>
+        <li>JavaScript is case sensitive</li>
+    </ul>
+    <h2>JavaScript console tips</h2>
+    Built in browser dev tools to view error and warning messages, test small pieces of code, and log helpful messages during development
+    <ul>
+        <li>Console tab: shows error message & tells you the file the error is in</li>
+        <li>Sources tab: shows more details about where the error is</li>
+        <li>console.log: built in function to log info that we don't want to show up on the page</li>
+        <ul>
+            <li>console.log("Alert sent!")</li>
+        </ul>
+        <li>Test Code: whatever is entered in the console is evaluated as JavaScript and will return a single value</li>
+        <ul>
+            <li>can declare a variable and run functions and console will remember the variable until you close the console</li>
+            <li>can clear text of console without clearing variables by clicking "Clear Console"</li>
+        </ul>
+    </ul>
+    <h2 id="condif">Conditional Statements: If</h2>
+    <p>conditional statements represent forks in a path</p>
+    <p>when a program encounters a conditional statement, it will evaluate a given condition then decide what code to run based on that evaluation</p>
+    <h3>If Statement</h3>
+    <ul>
+        <li>evaluates a condition and executes a block of code if the condition evaluates as true</li>
+        <li><em>Syntax</em></li>
+        <ul>
+            <li>if (condition) {<br>...code block to run if condition is truthy... <br>}</li>
+        </ul>
+        <li>Ex. if (password === "SuperSecretPassword") {<br>alert("Your password is correct!");<br>}</li>
+        <ul>
+            <li>triple equals operator (===) compares value (password) and string (SuperSecretPassword) and returns boolean value of true if they match or false if they don't</li>
+        </ul>
+    </ul>
+    <h3>If...Else</h3>
+    <ul>
+        <li>If statements can also have an else block following the if block</li>
+        <li>Ex. if (password === "SuperSecretPassword") {<br>alert("Your password is correct!");<br>} else { <br>alert("Wrong password!");<br>}</li>
+        <li>else block will only run when the if condition is false</li>
+    </ul>
+    <h3>If...Else If...Else</h3>
+    <ul>
+        <li>test more conditions in the same statement with else if</li>
+        <li>each if statement can only have 1 if block and 1 else block, but can add as many else if blocks between them as you want</li>
+        <li>Ex. if (color === "red") {<br>hexColorCode = "#FF0000";<br>} else if (color === "black") {<br> hexColorCode = "#000000";<br>} else { <br>hexColorCode = null;<br>}</li>
+    </ul>
+    <h3>Truthy & Falsy</h3>
+    <ul>
+        <li>If statements check for whether a condition is truthy or falsy</li>
+        <ul>
+            <li>different from Boolean values of true and false</li>
+        </ul>
+        <li>values can be converted to other data types (ex. number to string, string to Boolean, Boolean to number, etc)</li>
+        <li>A non-Boolean value that would be true if converted to Boolean is considered truthy</li>
+        <li>A non-Boolean value that would be false if converted to Boolean is considered falsy</li>
+        <li>Falsy values:</li>
+            <ul>
+                <li>false, undefined, null, 0, -0, NaN (not a number), or empty string ("")</li>
+            </ul>     
+        <li>Truthy values:</li>
+            <ul>
+                <li>any other value (3, -3, "any non-empty string," etc)</li>
+            </ul>
+        <li>Some conditions have a value of Boolean true/false</li>
+        <ul>
+            <li>ex. (password === "SuperSecretPassword"</li>
+        </ul>
+        <li>Sometimes might only want to check that a value holds some truthy value (doesn't contain null/undefined/any other falsy values)</li>
+        <ul>
+            <li>ex. if (password) { <br>...code to check if password is correct... <br>} else { <br>prompt("You must enter a password:");<br>}</li>
+            <li>condition of if statement is a password variable</li>
+            <li>truthy if password variable has content and falsy if not</li>
+        </ul>
+    </ul>
+    <h2 id ="operators">JavaScript Operators</h2>
+    <h3>Operators & Operands</h3>
+    <ul>
+        <li>Operation: can take many forms (ex. assignment, comparison, mathematical operation, etc)</li>
+        <li>Operators: characters that operate on one or more values</li>
+        <li>Assignment operator (=) ex. x= 5;</li>
+        <li>Operands: values involved in an operation (x is left operand, 5 is right operand)</li>
+        <li>binary operator (most common): operator with 1 left and 1 right operand</li>
+        <li>unary operator: operator with 1 operand</li>
+        <li>ternary operator: operator with 3 operands</li>
+    </ul>
+    <h3>Using Multiple Operators</h3>
+    <ul>
+        <li>can use more than 1 operator in a single statement (x = y + 3;)</li>
+        <li>can have multiple operators in the same operand (x = y + 3 * 5)</li>
+        <li>established order of operator precedence (like PEMDAS)</li>
+        <li>use parantheses to make intended order of operations clear</li>
+    </ul>
+    <p>Operator categories: comparison operators, logical operators, assignment operators, arithmetic operators, string operators</p>
+    <h3>Comparison operators</h3>    
+    <ul>
+        <li>commonly used for conditions</li>
+        <li>all comparison operators are binary operators</li>
+        <li>compare 2 values and return Boolean true or false</li>
+        <ul>
+            <li>Equality operators (4)</li>
+            <ul>
+                <li>=== strict equality/identity/triple equals operator: compares both operands' value and type</li>
+                <li>== loose equality/equality/double equals operator: performs type coercion (type converted without explicit request) before comparing value</li>
+                <li>ex. 5==="5" is false- comparing number and string</li>
+                <li>ex. 5=="5" is true- double equals operator coerces types to match</li>
+                <ul>
+                    <li>avoid using double equals operator</li>
+                </ul>
+            </ul><br>
+            <ul>
+                <li>!== strict inequality/nonidentity operator: compares both operands' value and type</li>
+                <li>!= loose inequality/inequality operator: performs type coercion (type converted without explicit request) before comparing value</li>
+                <li>ex. 5!=="5" is true- the two types are not equal</li>
+                <li>ex. 5!="5" is false- loose ineqaulity operator coerces types to match</li>
+                <ul>
+                    <li>generally, use strict versions (===) and (!==)</li>
+                </ul>
+            </ul>
+        </ul>
+        <ul>
+            <li>Relational operators</li>
+            <ul>
+                <li>&gt; greater than, &lt; less than, &gt;= greater than or equal to, &lt;= less than or equal to</li>
+                <li>with number operands &#8594; work normally</li>
+                <ul>
+                    <li>5&gt;10 false</li>
+                </ul>
+                <li>with string operands &#8594; compare in lexicographical order</li>
+                <ul>
+                    <li>"aardvark"&gt;"anteater"</li>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+    <h3>Logical Operators</h3>
+    <ul>
+        <li>3 logical operators in JavaScript</li>
+        <ul>
+            <li>Logical And (&&), Logical Or (||), Logical Not(!)</li>
+            <li>&& and || are binary: take right and left operands</li>
+            <ul>
+                <li>x&&y or x||y</li>
+            </ul>
+            <li>! is unary: takes one right operand</li>
+            <ul>
+                <li>!x</li>
+            </ul>
+        </ul>
+        <li>Logical And (&&)</li>
+        <ul>
+            <li>returns first false value or last truthy value</li>
+            <li>tests if the left operand is truthy or falsy</li>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Expression</th>
+                        <th>Return value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>true&&true</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>true&&false</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>false&&true</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>false&&false</td>
+                        <td>false</td>
+                    </tr>
+                </tbody>
+            </table>
+            <li>&& returns the last truthy value if and only if both operands are truthy</li>
+            <li>if either operand is falsy, then && returns the first falsy value</li>
+            <img src="./img/logical-and.png" height="200">
+        </ul>
+        <li>Logical Or (||)</li>
+        <ul>
+            <li>reutrns first truthy value or last falsy value</li>
+            <li>tests if the left operand is truthy or falsy</li>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Expression</th>
+                        <th>Return value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>true||true</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>true||false</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>false||true</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>false||false</td>
+                        <td>false</td>
+                    </tr>
+                </tbody>
+            </table>
+            <li>|| returns the first truthy value</li>
+            <li>if neither operand is truthy, then it will return the last falsy value</li>
+            <img src="./img/logical-or.png" height="200">
+        </ul>
+        <li>Logical Not (!)</li>
+        <ul>
+            <li>unary operator placed just before 1 operand</li>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Expression</th>
+                        <th>Return value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>!true</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>!false</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td>!"cat"</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>!(3&gt;2)</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>!"nucamp"===true</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td>!("nucamp"===true)</td>
+                        <td>true</td>
+                    </tr>
+                </tbody>
+            </table>
+            <li>always returns true or false</li>
+            <li>returns false when its operand's value is truthy</li>
+            <li>returns true when its operand's value is falsy</li>
+            <li>! type coerces its operand to a Boolean value then negates that value</li>
+            <ul>
+                <li>use parantheses around the operand to ensure ! operates on the entire operand and not the first value in it</li>
+            </ul>
+        </ul>
+        <li>Double Not(!!)</li>
+        <ul>
+            <li>not a new operator, but uses ! operator as shorthand for Boolean conversion</li>
+            <li>built-in JavaScript function Boolean()</li>
+            <ul>
+                <li>Boolean(123) &#8594; true</li>
+            </ul>
+            <li>first ! coerce to Boolean and negate</li>
+            <ul>
+                <li>!123 &#8594; false</li>
+            </ul>
+            <li>second !! reverse negation</li>
+            <ul>
+                <li>!!123 &#8594; true</li>
+            </ul>
+        </ul>
+    </ul>
+    <h3>Arithmetic Operators</h3>
+    <ul>
+        <li>Addition assignment operator (+=) binary</li>
+        <ul>
+            <li>instead of x = x + 2; can use x += 2</li>
+        </ul>
+        <li>Subtraction assignment operator (-=) binary</li>
+        <ul>
+            <li>instead of x = x - 2; can use x -= 2</li>
+        </ul>
+        <li>Increment operator (++) unary</li>
+        <ul>
+            <li>instead of y + 1; can use ++y</li>
+            <li>postfix (y++) returns the value before incrementation</li>
+            <ul>
+                <li>let varName = 1</li>
+                <li>console.log(varName++); &#8594; 1</li>
+                <li>console.log(varName); &#8594; 2</li>
+                <li>OR</li>
+                <li>let varName = 1</li>
+                <li>console.log(++varName); &#8594; 2</li>
+                <li>console.log(varName); &#8594; 2</li>
+            </ul>
+        </ul>
+        <li>Decrement operator (--) unary</li>
+        <ul>
+            <li>instead of y - 1; can use --y</li>
+            <li>postfix (y--) returns the value before decrementation</li>
+        </ul>
+    </ul>
+    <h2 id="condswitch">Conditional Statements: Switch</h2>
+    <p>evaluates an expression and depending on expression value, will execute case or default code<br>same as if...else statements, just more concise if have lots of expressions</p>
+    <ul>
+        <li>4 keywords: switch, case, break, default</li>
+        <ul>
+            <li>add break after or else will continue to next code</li>
+        </ul>
+        <li>switch(expression) { <br>case value: <br>...statements execute if expression matches this value...<br>break;<br>default: <br>...statement to execute if expression matches no case value...<br>}</li>
+        <img src="./img/switch.png" height="250">
+        <li>if don't have breaks, then will run all alerts</li>
+        <li>good to add default in case of typo or whatever</li>
+    </ul>
+    <h2 id="while">While Loops</h2>
+    <p>evaluates a condition that you set &#8594; as long as it is true, it will continue to loop<br>
+    at every iteration, the condition will be re-evaluated<br>use when you only want something to run  if it's true</p>
+    <ul>           
+        <li>while (condition to be evaluated) {<br>...code to run while condition is evaluated as true...<br>}</li>
+        <li>something needs to happen inside the while loop to make the condition be evaluated as false or else it will keep looping</li>
+        <ul>
+            <li>let i = 0;<br>while (i&lt;5) {<br>console.log("This is iteration #" + i);<br>}</li>
+            <li>will run 5 times ("This is iteration #1-5) until i &gt; 5</li>
+        </ul>
+    </ul>
+    <h3>Do...While Loop</h3>
+    <p>loop block executes once before evaluating the condition<br>   
+    even if condition is false, the code inside the block will execute at least once<br> use if you want something to run once even it if isn't true</p>
+    <ul>
+        <li>do {<br>...code to run first once, then loop while the condition evaluates as true...<br>} while (condition to be evaluated);</li>
+    </ul>
+    <ul>
+        <li>let i = 5;<br>do {<br>i += 1;<br>console.log("This is iteration #" + i);<br>} while (i &lt; 5);</li>
+        <li>will show "This is iteration #6"</li>
+    </ul>
+    <h2 id="scope">Scope</h2>
+    <p>region of code where a variable exists and can be accessed</p>
+    <ul>
+        <li>Local Scope</li>
+        <ul>
+            <li>Block Scope (let & const)</li>
+            <ul>
+                <li>variables declared using let and const have block scope</li>
+                <li>only accessible within the code block (any statement within {}) they're declared in and any of their child blocks</li>
+                <li>if (true) { <br>let testVar = 1;<br>}<br>console.log(testVar);</li>
+                <li>testVar will show not defined (variable was not declared)</li>
+                <li>when the if block ended, the variable testVar was deleted</li>
+            </ul>
+            <br>
+            <ul>
+                <li> if (true) {<br>let testVar = 1; <br>if (true) { <br>console.log(testVar);<br>}<br>}</li>
+                <li>will show 1</li>
+                <li>testVar is accessible because it is in the child block</li>
+                <li>can't declare a variable in child block, because parent can't see it</li>
+            </ul>
+            <li>Function Scope (var)</li>
+            <ul>
+                <li>similar to block scope, but can't be accessed from within function blocks (only if or switch, etc)</li>
+                <li>function used by variables declared with var keyword</li>
+            </ul>
+        </ul>
+        <li>Global Scope (mostly const)</li>
+        <ul>
+            <li>variables declared outside of any code block have global scope (available everywhere)</li>
+            <li>best to declare variables with local scope instead of global because can lead to confusion and bugs</li>
+            <ul>
+                <li>constants that won't change and are used multiple times can be globals</li>
+            </ul>
+        </ul>
+    </ul>
+    <h2 id="arrays">Arrays</h2>
+    <p>numerically indexed values (can be strings, numbers, booleans, other arrays)<br>each item in an array is indexed based on its order (starting with 0)</p>
+    <ul>
+        <li>array literal syntax: [item1, item2, item3, ...]</li>
+        <li>to use an array more than once, store in a variable</li>
+        <ul>
+            <li>const groceryList = ["eggs", "coffee", "salad"];</li>
+            <table border="1">
+                <tr>
+                    <td>array item</td>
+                    <td>"eggs"</td>
+                    <td>"coffee beans"</td>
+                    <td>"salad"</td>
+                </tr>
+                <tr>
+                    <td>array index</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+            </table>
+        </ul>
+        <li>to access array item: groceryList[0] &#8594; "eggs"</li>
+        <li>to modify array item: groceryList[0] = "bananas";</li>
+        <ul>
+            <li>new array &#8594; const groceryList = ["bananas", "coffee", "salad"];</li>
+        </ul>
+        <li>to see length of array (arrayName.length)</li>
+        <ul>
+            <li>groceryList.length &#8594; 3</li>
+            <li>length of array is 3, but index is 0 through 2</li>
+        </ul>
+        <li>to access last item in array (arrayName[arrayName.length-1]</li>
+        <ul>
+            <li>groceryList[groceryList.length-1] &#8594; "salad"</li>
+        </ul>
+    </ul>
+    <h3>Array Methods</h3>
+    <p>arrayName.methodName()</p>
+    <ul>
+        <li>const groceryList = ["eggs", "coffee", "salad"];</li>
+        <li>pop()- removes item from end of array</li>
+        <ul>
+            <li>groceryList.pop() &#8594; ["eggs", "coffee"];</li>
+            <li>return value- item that was removed ("salad")</li>
+        </ul>
+        <li>push()- adds 1+ items to end of array</li>
+        <ul>
+            <li>groceryList.push("milk") &#8594; ["eggs", "coffee", "milk"];</li>
+            <li>return value- new array length (3)</li>
+        </ul>
+        <li>shift()- removes item from beginning of array</li>
+        <ul>
+            <li>groceryList.shift() &#8594; ["coffee", "salad"];</li>
+            <li>return value- item that was removed ("eggs")</li>
+            <li>changes the index of all other items in the array</li>
+        </ul>
+        <li>unshift()- adds 1+ item to beginning of array</li>
+        <ul>
+            <li>groceryList.unshift("milk") &#8594; ["milk", "coffee", "salad"]</li>
+            <li>return value- new length of array (3)</li>
+            <li>changes the index of all other items in the array</li>
+        </ul>
+        <li>join()- takes all items in an array and returns a string</li>
+        <ul>
+            <li>no argument provided (comma is default separator)</li>
+            <ul>
+                <li>const groceries = groceryList.join(); &#8594; groceries = "eggs,coffee,salad"</li>
+            </ul>
+            <li>argument provided</li>
+            <ul>
+                <li>const groceries = groceryList.join(--); &#8594; groceries = "eggs--coffee--salad"</li>
+            </ul>
+        </ul>
+        <li>includes()- used to check if an item exists inside an array</li>
+        <ul>
+            <li>const itemInArray = groceryList.includes("eggs"); &#8594; itemInArray is true</li>
+            <li>returns Boolean value of true or false</li>
+        </ul>
+        <li>indexOf()- returns the index of the item in an array</li>
+        <ul>
+            <li>const itemIndex = groceryList.indexOf("coffee"); &#8594; itemIndex is 1</li>
+            <li>if item does not exist in the array, it will return -1</li>
+        </ul>
+    </ul>
+    <h3>More Array Methods</h3>
+    <ul>
+        <li>concat()- combine two arrays into one (return value: new combined array)</li>
+        <ul>
+            <li>Syntax</li>
+            <ul>
+                <li>firstArray.concat(secondArray);</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>const primaryColorsArr = ["red", "blue", "yellow"]<br>const secondaryColorsArr = ["purple", "green", "orange"]<br>const colorsArr = primaryColorsArr.concat(secondaryColorsArr)<br>colorsArr ["red", "blue", "yellow", "purple", "green", "orange"]</li>
+            </ul>
+        </ul>
+        <li>sort()- alphabetizes array of strings</li>
+        <ul>
+            <li>Syntax</li>
+            <ul>
+                <li>array.sort();</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>const colorsArr ["red", "blue", "yellow", "purple", "green", "orange"]<br>colorsArr.sort();<br>colorsArr ["blue","green", "orange", "purple", "red", "yellow"]</li>
+            </ul>
+        </ul>
+        <li>reverse()- reverse alphabetizes array of strings</li>
+        <ul>
+            <li>Syntax</li>
+            <ul>
+                <li>array.reverse();</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>const colorsArr ["red", "blue", "yellow", "purple", "green", "orange"]<br>colorsArr.reverse();<br>colorsArr ["yellow", "red", "purple", "orange", "green", "blue"]</li>
+            </ul>
+        </ul>
+        <li>slice()- copies part of an array to put into a new array (return value is new array with copies of the sliced out items)</li>
+        <ul>
+            <li>Syntax</li>
+            <ul>
+                <li>array.slice(beginIndex, endIndex);</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>const testArr = ["a", "b", "c", "d", "e", "f", "g"];<br>let slicedArr = testArr.slice(2, 5);<br>slicedArr = ["c", "d", "e"]<br><br>let slicedArr = testArr.slice(2);<br>slicedArr = ["c", "d", "e", "f", "g"]<br><br>let slicedArr = testArr.slice();<br>slicedArr = ["a", "b", "c", "d", "e", "f", "g"];</li>
+            </ul>
+        </ul>
+        <li>splice()- insert, adds, or removes items from any point of an array</li>
+        <ul>
+            <li>insert</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>array.splice(atIndex, 0, item to insert);</li>
+                </ul>
+                <li>Example</li>
+                <ul>
+                    <li>const testArr = ["a", "b", "c", "d"]<br>testArr.splice(2, 0, "x");<br>testArr = ["a", "b", "x", "c", "d"]<br><br>testArr.splice(2, 0, "x", "y", "z");<br>testArr = ["a", "b", "x", "y", "z", "c", "d"]</li>
+                </ul>
+            </ul>
+            <li>removes</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>array.splice(atIndex, numItemsToRemove);</li>
+                </ul>
+                <li>Example</li>
+                <ul>
+                    <li>const testArr = ["a", "b", "c", "d", "e", "f"]<br>const removed = testArr.splice(1,3);<br>testArr = ["a", "e", "f"]<br>removed = ["b", "c", "d"]</li>
+                </ul>
+            </ul>
+            <li>replace</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>array.splice(atIndex, numItemsToReplace, items);</li>
+                </ul>
+                <li>Example</li>
+                <ul>
+                    <li>const testArr = ["a", "b", "c", "d", "e", "f"]<br>const replaced = testArr.splice(1, 3, "uno");<br>testArr = ["a", "uno", "e", "f"]<br>replaced = ["b", "c", "d"]</li>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+    <h2 id="strings">Strings</h2>
+    <p>iterables (like arrays) JavaScript treats strings similarly to arrays, but it has its own strings</p>
+    <h3>Strings: For...Of</h3>
+    <ul>
+        <li>const myStr = "abcdefg";<br>for (const x of myStr) {<br>console.log(x);<br>}<br>a b c d e f g</li>
+    </ul>
+    <h3>Strings: Index & Length</h3>
+    <ul>
+        <li>const myStr = "abcdefg";<br>myStr[0] = "a"<br>can not replace like array X myStr[5] = "z" X<br><br>myStr.length = 7 <br>myStr[myStr.length-1] = "g"</li>
+    </ul>
+    <h3>String Methods</h3>
+    <p>const myStr = "Caboose";</p>
+    <ul>
+        <li>indexOf()</li>
+        <ul>
+            <li>Example</li>
+            <li>myStr.indexOf("b") is 2</li>
+        </ul>
+        <li>includes()</li>
+        <ul>
+            <li>Example</li>
+            <li>myStr.includes("b") is true</li>
+            <li>myStr.includes("boo") is true</li>
+            <li>myStr.includes("bb") is false</li>
+        </ul>
+        <li>slice()</li>
+        <ul>
+            <li>Example</li>
+            <li>myStr.slice(2,5) is "boo"</li>
+            <li>myStr.slice(2) is "boose"</li>
+        </ul>
+        <li>toLowerCase()</li>
+        <ul>
+            <li>Example</li>
+            <li>myStr.toLowerCase() is "caboose"</li>
+        </ul>
+        <li>toUpperCase()</li>
+        <ul>
+            <li>Example</li>
+            <li>myStr.toUpperCase() is "CABOOSE"</li>
+        </ul>
+        <li>split()- convert string to array (argument is separator that determines where to split the string ex. space or comma)</li>
+        <ul>
+            <li>Example</li>
+            <li>const myStr = "little red balloon";<br>myStr.split(" "); ["little", "red", "balloon"] -- separates at the spaces</li>
+            <li>const myStr = "small.medium,large";<br>myStr.split(","); ["small", "medium", "large"] -- separates at the commas</li>
+        </ul>
+    </ul>
+    <h3>Generating random numbers</h3>
+    <ul>
+        <li>Math- built-in global object to access methods</li>
+        <li>Math.random()</li>
+        <ul>
+            <li>generates a random number between 0 and 1 (including 0, but not including 1)</li>
+            <li>let randomNum = Math.random();</li>
+            <li>to generate a random number between 0 and higher than 1</li>
+            <ul>
+                <li>between 0-6 &#8594; let randomNum = Math.random() * 6;</li>
+            </ul>
+        </ul>
+        <li>Math.floor()</li>
+        <ul>
+            <li>makes decimals into integers</li>
+            <ul>
+                <li>const anInteger = Math.floor(3.14); &#8594; anInteger is 3</li>
+            </ul>
+        </ul>
+        <li>generating random integers</li>
+        <ul>
+            <li>const randomInteger = Math.floor(Math.random() * 6);</li>
+            <li>value can be 0, 1, 2, 3, 4, 5 (not 6)</li>
+            <li>const randomInteger = Math.floor(Math.random() * 6) + 1;</li>
+            <li>value can be 1, 2, 3, 4, 5, 6</li>
+        </ul>
+    </ul>
+    <h2 id="forloop">For Loops</h2>
+    <ul>
+        <li>For Loop syntax</li>
+        <li>for (initialization; condition; final expression) {<br>...code to execute...<br>}</li>
+        <li></li>
+    </ul>
+    <h3>For Loops vs While Loops</h3>
+    <p>For loops are like while loops, but with built-in support for an incrementing iterator</p>
+    <ul>
+        <li>While loop</li>
+        <ul>
+            <li>let i = 0;<br>while (i < 5) {<br>console.log("Looper Iteration #", i);<br>i += 1;<br></li>
+        </ul>
+        <li>For loop</li>
+        <ul>
+            <li>for(let i = 0; i < 5; i++) {<br>console.log("Loop Iteration #", i);<br>}</li>
+        </ul>
+    </ul>
+    <h3>For Loops & Arrays</h3>
+    <ul>
+        <li>when you don't know the amount of iterations needed, can use loops and arrays to set up a dynamic number of iterations</li>
+        <ul>
+            <li>ex. number of guests RSVPing</li>
+        </ul>
+        <li>Example</li>
+        <ul>
+            <li>const guestArray = ["Will", "Chris", "David", "Dustin"];<br><br>for (i = 0; i < guestArray.length; i++) {<br>console.log(`Welcome to the party ${guestArray[i]}!`);<br>}</li>
+        </ul>
+    </ul>
+    <h3>For...Of Loops</h3>
+    <ul>
+        <li>works with arrays and other iterables</li>
+        <li>automatically calculates length of array and runs the loop exactly that many times then exits (no condition, no iterator)</li>
+        <li>Syntax</li>
+        <ul>
+            <li>for (const/let variableName <strong>of</strong> arrayName) {<br>...code to execute once per item in the array...<br>}</li>
+        </ul>
+        <li>Example</li>
+        <ul>
+            <li>const guestArray = ["Will", "Chris", "David", "Dustin"];<br><br>for (const guest of guestArray) {<br>console.log(`Welcome to the party ${guest}!`);<br>}</li>
+        </ul>
+        <li>shorter, cleaner syntax</li>
+    </ul>
+    <h3>Loop Control</h3>
+    <ul>
+        <li>2 statements that can be used inside any while or for loop:</li>
+        <ul>
+            <li>Break- immediately exits a loop</li>
+            <ul>
+                <li>for (let i = 0; i < 10; i++) {<br>if (i === 5) {<br>break;<br>}<br>console.log(i);<br>}</li>
+                <li>console shows: 0 1 2 3 4</li>
+                <li>when i is equal to 5, the loop stops</li>
+            </ul>
+            <li>Continue- immediately skip to the next iteration of the loop</li>
+            <ul>
+                <li>for (let i = 0; i < 10; i++) {<br>if (i === 5) {<br>continue;<br>}<br>console.log(i);<br>}</li>
+                <li>console shows: 0 1 2 3 4 6 7 8 9</li>
+                <li>when i is equal to 5, the loop skips 5 and continues until i is no longer less than 10</li>
+            </ul>
+        </ul>
+    </ul>
+    <h2 id="dom">The DOM</h2>
+    <p>DOM (stands for )Document Object Model) provides interface between JavaScript and HTML<br>when browser loads HTML doc, it will internally represent it with the DOM (tree graph)</p>
+    <img src="/img/dom.png" height="150"></li>
+    <ul>
+        <li>root node: &lt;html&gt;</li>
+        <li>head branch: &lt;head&gt; &#8594; &lt;title&gt; &#8594; text- DOM Example</li>
+        <br>
+        <li>&lt;html&gt; is parent node of &lt;head&gt; and &lt;body&gt;</li>
+        <li>&lt;head&gt; and &lt;body&gt; are child nodes of &lt;html&gt;</li>
+        <li>&lt;h1&gt; and &lt;p&gt; are sibling nodes with parent of &lt;body&gt;</li>
+        <br>
+        <li>text- Hello World! is a text node</li>
+    </ul>
+    <img src="/img/dom-whitespace.png" height="150">
+    <ul>
+        <li>doesn't show whitespace in browser, but displays in DOM</li>
+        <li>whitespace nodes (line breaks, tabs, spaces not part of text)</li>
+        <li>wouldn't have any whitespace if:</li>
+        <ul>
+            <li>&lt;body&gt;&lt;p&gt;Hello World&lt;/p&gt;&lt;/body&gt;</li>
+        </ul>
+    </ul>
+    <h3>Node Relationsips</h3>
+    <p>can use the DOM as an interface to reference nodes in relation to each other<br>traversing the DOM- can travel through the document via node connections</p>
+    <ul>
+        <li>entry point into the DOM: let node = document.body; (good to use body because there's only 1 in any HTML document</li>
+    </ul>
+    <p>Node Properties</p>
+    <ul>
+        <li>.parentNode- gives the parent of the node</li>
+        <li>.firstChild & .lastChild- first and last child of the node</li>
+        <li>.nextSibling- very next sibling of the node</li>
+        <li>.previousSibling- immediate previous sibling of the node</li>
+        <li>.childNodes[...]- gives an iterable that contains all child nodes of a node called a NodeList<br>use bracket notation with index (ex. .childNodes[1] for second child)</li>
+        <li><img src="img/nodeprops1.png" height="190"><img src="img/nodeprops2.png" height="190"></li>
+    </ul>
+    <h3>4 Ways to Locate Nodes</h3>
+    <p>always start with keyword document.nodeProperty &#8594; references HTML document that is running code (data type = object) the very first node in the DOM tree<br><a href="/examples/locating-nodes.html" target="_blank">Locating Nodes Example</a></p>
+    <ul>
+        <li>traversing the DOM</li>
+        <ul>
+            <li>start at document and go down the tree using node relationships</li>
+            <li>Example</li>
+            <ul>
+                <li>function changeColor1() {<br>
+                    document.childNodes[1].childNodes[2].childNodes[3].style.color = 'red';<br>
+                }</li>
+            </ul>
+            <li>worst way: have to do a lot more work and if anything changes in HTML page, then whole thing is broken</li>
+        </ul>
+        <li>getElementsByTagName()</li>
+        <ul>
+            <li>looks for every element that is a particular tag name</li>
+            <li>can access a specific element by using bracket notation and its index number</li>
+            <li>Example</li>
+            <ul>
+                <li>function changeColor2() {<br>
+                    document.getElementsByTagName('p')[0].style.color = 'orange';<br>
+                }</li>
+            </ul>
+            <li>can be good if want to change all of one element type, but not best for a specific element because need to know the order and order can be changed</li>
+        </ul>
+        <li>getElementById()</li>
+        <ul>
+            <li>uses id to target element specifically</li>
+            <li>Example</li>
+            <ul>
+                <li>function changeColor3() {<br>
+                    document.getElementById('textToChange').style.color = 'blue';<br>
+                }</li>
+            </ul>
+            <li>should only have 1 id in the document so can directly access it</li>
+        </ul>
+        <li>querySelector()</li>
+        <ul>
+            <li>uses CSS selectors</li>
+            <li>Example</li>
+            <ul>
+                <li>function changeColor4() {<br>
+                    document.querySelector('#textToChange').style.color = 'green';<br>
+                }</li>
+            </ul>
+            <li>more flexible and powerful because can use any CSS selector (even more complex ones: classes, element names, id, attribute selectors) rather than just an id</li>
+            <ul>
+                <li>function changeColor4() {<br>document.querySelector("p + button").style.background = "blue";<br>}</li>
+                <ul>
+                    <li>selects the first button right after a p element and turns its background blue</li>
+                </ul>
+            </ul>
+            <li>only gives you one so if want to get more than 1 element back, can use querySelectorAll() &#8594; returns node list of all nodes matching your selector</li>
+        </ul>
+    </ul>
+    <h4>How to change HTML elements through JavaScript</h4>
+    <ul>
+        <li>been using node.style.color- accesses HTML style attribute</li>
+        <li>in JavaScript style property can further access the color property</li>
+        <li>several HTML attributes can be accessed in JavaScript like this</li>
+        <li>Example</li>
+        <ul>
+            <li>style.background = "blue"</li>
+            <li>(button element). hidden = "true";</li>
+        </ul>
+    </ul>
+    <h3>Creating and Adding Nodes</h3>
+    <a href="/examples/create-and-add-nodes.html" target="_blank">Create and Add Nodes Example</a>
+    <ul>
+        <li>createElement()</li>
+        <ul>
+            <li>can create any new HTML element node in JavaScript</li>
+            <li>Syntax</li>
+            <ul>
+                <li>document.createElement("element")</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>const newEl = document.createElement("hr")</li>
+            </ul>
+        </ul>
+        <li>createTextNode()</li>
+        <ul>
+            <li>can create any new HTML text node in JavaScript</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>document.createTextNode("text");</li>
+                </ul>
+                <li>Example</li>
+                <ul>
+                    <li>const newText = document.createTextNode("I am creating a new text node");</li>
+                </ul>
+            </ul>
+            <li>there are other methods to create other kinds of nodes (createComment)</li>
+        </ul>
+        <br>
+        <li>once you create a new node, it isn't automatically added to the DOM and won't show up on the webpage until you explicitly tell it where it belongs</li>
+        <br>
+        <li>insertBefore()</li>
+        <ul>
+            <li>node method to add any type of new node that must be used on an existing node</li>
+            <li>need to find an existing node in the DOM to act as the parent node for the node to insert</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>parentNode.insertBefore(newNode, child node in parent you want to insert before)</li>
+                </ul>
+                <li>Example</li>
+                <ul>
+                    <li>parentNode.insertBefore(newEl, parentNode.firstChild)</li>
+                    <li>will become the new first child</li>
+                    <li>parentNode.insertBefore(newEl, parentNode.lastChild)</li>
+                    <li>will become the second to last child</li>
+                </ul>
+            </ul>
+        </ul>
+        <li>appendChild()</li>
+        <ul>
+            <li>another node method to add a node to an existing DOM, but automatically as the last child node</li>
+            <li>also need to locate a node to act as the parent</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>parentNode.appendChild(newNode);</li>
+                </ul>
+                <li>Example</li>
+                <ul>
+                    <li>parentNode.appendChild(newText);</li>
+                    <li>adds newText as the last child node of parentNode</li>
+                </ul>
+            </ul>
+        </ul>
+    </ul>
+    <h3>Removing Nodes</h3>
+    <a href="/examples/removing-nodes.html" target="_blank">Removing Nodes Example</a>
+    <ul>
+        <li>remove()</li>
+        <ul>
+            <li>need to reference the exact node to remove</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>nodeToRemove.remove();</li>
+                </ul>
+            </ul>
+        </ul>
+        <li>removeChild()</li>
+        <ul>
+            <li>need to reference a parent node</li>
+            <ul>
+                <li>Syntax</li>
+                <ul>
+                    <li>parentNode.removeChild(specific child to remove);</li>
+                </ul>
+                <li>Example</li>
+                <ul>
+                    <li>parentNode.removeChild(parentNode.firstChild);</li>
+                    <li>removes the first child of parentNode</li>
+                </ul>
+            </ul>
+        </ul>
+        <li>when you remove a node with remove() or removeChild(), it removes the whole branch and all child nodes of the removed node are removed too</li>
+        <br>
+        <li>combine removeChild() and a while loop &#8594; remove all the children of the node, but not the parent</li>
+        <ul>
+            <li>Example</li>
+            <ul>
+                <li>while (parentNode.firstChild) {<br>parentNode.removeChild(parentNode.firstChild);<br>}</li>
+                <li>while loop keeps removing the first child until there are no more and leaves the parentNode</li>
+            </ul>
+        </ul>
+        <br>
+        <li>firstElementChild</li>
+        <ul>
+            <li>parentNode.firstElementChild</li>
+            <li>similar to firstChild, but returns the first <em>element</em> child of a node and skips any text nodes or other kinds of nodes</li>
+        </ul>
+    </ul>
+    <h3>Cloning Nodes</h3>
+    <a href="/examples/cloning-nodes.html" target="_blank">Cloning Nodes Example</a>
+    <ul>
+        <li>Cloning a Single Node</li>
+        <ul>
+            <li>need to refer to a node to clone & explicitly attach it to the DOM using insertBefore() or appendChild()</li>
+            <li>Syntax</li>
+            <ul>
+                <li>cloneNode()</li>
+                <li>no argument</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>const newNode = nodeToClone.cloneNode();</li>
+                <li>if nodeToClone is a list element, will only clone that element and not any of its children</li>
+            </ul>
+        </ul>
+        <li>Cloning a branch</li>
+        <ul>
+            <li>also need to refer to a node to clone & explicitly attach it to the DOM using insertBefore() or appendChild()</li>
+            <li>Syntax</li>
+            <ul>
+                <li>cloneNode(true)</li>
+                <li>pass Boolean value true as an argument</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>const newNode = nodeToClone.cloneNode(true);</li>
+                <li>if nodeToClone is a list element, will clone that element plus any of its children</li>
+            </ul>
+        </ul>
+        <li>lastElementChild</li>
+        <ul>
+            <li>like firstElementChild</li>
+            <li>node property that gives the last child element (not text or other types of nodes)</li>
+            <li>Syntax</li>
+            <ul>
+                <li>parentNode.lastElementChild </li>
+            </ul>
+        </ul>
+    </ul>
+    <h2 id="events">Events</h2>
+    <ul>
+        <li>when used in HTML, called inline event handlers</li>
+    </ul>
+    <h3>Mouse Events</h3>
+    <ul>
+        <li>set as an attribute of any clickable HTML element<br>runs the JS (usually function) in the attribute value whenever the element it is set on is clicked</li>
+        <ul>
+            <li>Example</li>
+            <ul>
+                <li>&lt;h1 onclick="changeBackground();"&gt;Click Me&lt;/h1&gt;</li>
+                <li>function argument list required even if empty</li>
+            </ul>
+        </ul>
+        <li>onclick()</li>
+        <ul>
+            <li><a href="/examples/onclick.html" target="_blank">On Click Demo</a></li>
+        </ul>
+        <li>onmousedown()- when clicking down on mouse & onmouseup()- when release mouse</li>
+        <ul>
+            <li><a href="/examples/onmousedownup.html" target="_blank">On Mouse Down/Up Demo</a></li>
+        </ul>
+        <li>onmouseover()- when hovering over an element & onmouseout()- when move off an element</li>
+        <ul>
+            <li><a href="/examples/onmouseoverout.html" target="_blank">On Mouse Over/Out Demo</a></li>
+        </ul>
+    </ul>
+    <h3>Timer Events</h3>
+    <ul>
+        <li>timers let you delay code from executing for a specific amount of time</li>
+        <li>setTimeout()- runs code/function once after timeout</li>
+        <ul>
+            <li>Syntax</li>
+            <ul>
+                <li>setTimeout(aFunctionName, waitDuration)</li>
+                <li>1st argument: function name with no argument list or parentheses</li>
+                <li>2nd argument: time in milliseconds</li>
+            </ul>
+            <li><a href="/examples/timer-demo1.html" target="_blank">Timer Demo 1</a></li>
+        </ul>
+        <li>clearTimeout()</li>
+        <ul>
+            <li>setTimeout() returns value of numeric timerID &#8594 assign to variable</li>
+            <ul>
+                <li>let timerID = setTimeout(aFunctionName, waitDuration)</li>
+            </ul>
+            <li>clearTimeout() stops the timer by using the timer ID</li>
+            <ul>
+                <li>clearTimeout(timerID);</li>
+            </ul>
+            <li><a href="/examples/timer-demo2.html" target="_blank">Timer Demo 2</a></li>
+        </ul>
+        <li>setInterval()- repeats code/function in intervals with wait duration between intervals</li>
+        <ul>
+            <li>setInterval(aFunctionName, waitDuration)</li>
+            <li><a href="/examples/timer-demo3.html" target="_blank">Timer Demo 3</a></li>
+        </ul>
+        <li>clearInterval()- stops interval</li>
+        <ul>
+            <li>also need to assign returned numeric ID to variable</li>
+            <ul>
+                <li>let timerID = setInterval(aFunctionName, waitDuration)</li>
+                <li>clearInterval(timerID);</li>
+            </ul>
+            <li><a href="/examples/timer-demo4.html" target="_blank">Timer Demo 4</a></li>
+        </ul>
+    </ul>
+    <h3>Adding Events Using JS</h3>
+    <ul>
+        <li>inline event handlers good for basic demos, but better to use built-in methods in JS because can add more than 1 handler function to the same event on the same element AND can remove eventListener</li>
+        <ul>
+            <li>HTML: if onmouseover, onmouseover, onmouseout &#8594; only first onmouseover and onmouseout will work</li>
+            <li>JS: both mouseovers and mouseout will work</li>
+        </ul>
+        <li>addEventListener()</li>
+        <ul>
+            <li>Syntax</li>
+            <ul>
+                <li>node.addEventListener("eventName", functionToRun)</li>
+                <li>event name like onclick, but without on and has to be in quotes (ex. "click", "mouseover")</li>
+                <li>function must be function name only (no argument list, no parantheses)</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>div.addEventListener("mouseover", changeTextColor);</li>
+            </ul>
+        </ul>
+        <li>removeEventListener()</li>
+        <ul>
+            <li>Syntax</li>
+            <ul>
+                <li>node.removeEventListener("eventName", functionToRun)</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>div.removeEventListener("mouseover", changeTextColor);</li>
+                <li>will only change text color the first time you mouseover</li>
+            </ul>
+        </ul>
+    </ul>
+</body>
+</html>

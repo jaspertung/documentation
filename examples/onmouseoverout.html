@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Onmouseover & Onmouseout Demo</title>
+    <style>
+        div {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div onmouseover="changeBackground('red');" onmouseout="changeBackground('yellow');">
+        <!-- make sure to use single quotes for the arguments since there are already double quotes -->
+        Move your mouse over this text, then move it out
+    </div>
+
+    <script>
+        function changeBackground(newColor) {
+            document.getElementsByTagName('div')[0].style.background = newColor;
+            // the parameter (newColor) is used as the value for the background style
+        }
+    </script>
+</body>
+</html>

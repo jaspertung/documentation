@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & Github</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <h1>Git & Github</h1>
+     <ul>
+         <li>Git- free and open source version control system</li>
+         <li>Github- website to host repositories online</li>
+     </ul>
+     <h2>Git Commands</h2>
+     <ul>
+         <li>clone: bring repository hosted on Github into a folder on local machine</li>
+         <li>add: track your files and changes in Git</li>
+         <li>commit: save your files in Git</li>
+         <li>push: upload Git commits to a remote repository (Github)</li>
+         <li>pull: download changes from remote repository to local machine (opposite of push)</li>
+         <li>cd: change directory</li>
+         <li>mkdir: make new directory</li>
+         <li>.gitignore- creates file that won't be stored in remote repo</li>
+         <ul>
+             <li>in new file, type any file/folder that you don't want included</li>
+         </ul>
+         <ul>
+             <li>../</li>
+         </ul>
+         <li>ls -la: see hidden folder to make sure folder is grom Github</li>
+         <ul>
+             <li>folder will show as .git</li>
+             <li>stores commits history</li>
+         </ul>
+         <li>q: exit</li>
+         <li>status: shows all files that were updated, created, deleted but not saved into commit yet</li>
+         <ul>
+             <li>always good to check status before commit</li>
+         </ul>
+         <li>-u: set upstream to say where to push on default</li>
+         <li>branch: check branches and star shows the one you are currently in</li>
+         <li>checkout: change between branches</li>
+         <ul>
+             <li>checkout -b branch-name: creates new branch and moves to that branch</li>
+         </ul>
+         <li>git diff: shows what changes have been made between 2 versions of code</li>
+         <li>git reset: undo an add or commit</li>
+         <ul>
+             <li>git reset file-name</li>
+             <li>undo commit (git reset HEAD</li>
+         </ul>
+         <li>git log: see log all your commits</li>
+     </ul>
+
+     <h2>Github Workflow</h2>
+     <p>Write code &#8594; Commit changes &#8594; Make a pull request</p>
+     
+     <h2>Local Git Workflow</h2>
+     <p>Write code &#8594; Stage changes (git add) &#8594; Commit changes (git commit) &#8594; Push changes (git push) &#8594; Make a pull request</p>
+     
+     <h2>From repo to local machine</h2>
+     
+     <h3>Cloning repo</h3>
+     <ul>
+         <li>git clone (SSH key from Github)</li>
+     </ul>
+     <h3>Saving local changes in Git</h3>
+     <ul>
+         <li>check git status &#8594; will show "Modified files" so need to stage before saving to Git</li>
+         <li>git add</li>
+         <ul>
+             <li>git add. &#8594; stage all files/folders listed in git status (untracked and modified files/folders</li>
+             <li> git add file.html &#8594; stage specified file/folder</li>
+         </ul>
+     </ul>
+     
+     <h3>Creating new file/folder locally</h3>
+     <ul>
+         <li>check git status &#8594; will show "Untracked files" so need to track before saving to Git</li>
+         <li>git add</li>
+         <ul>
+             <li>git add. &#8594; track all files/folders listed in git status (untracked and modified files/folders)</li>
+             <li> git add file.html &#8594; track specified file/folder</li>
+         </ul>
+     </ul>
+     
+     <h3>Commit Locally</h3>
+     <ul>
+         <li>save</li>
+         <li>git commit -m "title -m "description"</li>
+         <ul>
+             <li>git commit -m "Added index.html" -m "some description"</li>
+         </ul>
+         <li>only works for modifying files not adding</li>
+         <ul>
+             <li>git commit -am "title" -m "description"</li>
+             <li>adds and commits at the same time</li>
+         </ul>
+     </ul>
+     
+     <h3>SSH keys</h3>
+     <ul>
+         <li>SSH key to prove to Github that you are the owner of your account (connecting local machine to Github account)</li>
+         <ul>
+             <li>keyname (private key) and keyname.pub (public key)</li>
+             <li>use private key to prove you own the public key</li>
+         </ul>
+         <li>add SSH key to ssh-agent</li>
+     </ul>
+     
+     <h3>Push to remote repository</h3>
+     <ul>
+         <li>git push origin master</li>
+         <ul>
+             <li>origin &#8594; stands for location of Git repository</li>
+             <li>master &#8594; branch we want to push to</li>
+         </ul>
+         <li>code changes will show on Github</li>
+     </ul>
+     
+     <h2>Starting Repo locally</h2>
+     <ul>
+         <li>create new folder in VS Code or Finder</li>
+         <li>inititally isn't Git repo</li>
+         <li>git init</li>
+         <ul>
+             <li>initialize to empty Git repo</li>
+             <li>can check with ls -la</li>
+         </ul>
+         <li>git add</li>
+         <li>git commit</li>
+     </ul>
+     
+     <h3>Push to remote repository</h3>
+     <ul>
+         <li>git push origin master doesn't work because no repo in Github to connect to</li>
+         <li>create new empty repo in Github</li>
+         <ul>
+             <li>copy SSH</li>
+         </ul>
+         <li>git remote add origin (paste SSH)</li>
+         <ul>
+             <li>add a reference to the remote repo on Github</li>
+         </ul>
+         <li>git remote -v &#8594; checks any remote repos connected to local repo</li>
+         <li>git push origin master</li>
+         <ul>
+             <li>set up shortcut</li>
+             <ul>
+                <li>set upstream (-u) &#8594; where to push on default</li>
+                <li>git push -u origin master</li>
+                <li>now can use just git push</li>
+            </ul>
+         </ul>    
+     </ul>
+     
+     <h2>Branching</h2>
+     <ul>
+         <li>git branch (shows branches and star shows the one you are currently in)</li>
+         <li>git checkout (change between branches)</li>
+         <ul>
+             <li>git checkout master</li>
+             <li>can hit tab to auto-fill branch name</li>
+         </ul>
+         <li>git checkout -b (create new branch and move into that branch)</li>
+         <ul>
+             <li>git checkout -b feature-readme-instructions</li>
+         </ul>
+     </ul>
+     <h3>Making changes in branch and committing them</h3>
+     <ul>
+         <li>VS Code will show "M" next to file to show it has been modified</li>
+         <li>git add</li>
+         <li>git commit</li>
+         <li>only saved on the branch (not on main)</li>
+         <li>need to commit branch before switching branches or else will be overwritten</li>
+     </ul>
+     <h3>Merge branch</h3>
+     <ul>
+         <li>git diff: shows what changes have been made between 2 versions of code</li>
+         <ul>
+             <li>git diff branch-name</li>
+             <li>hit q to exit</li>
+         </ul>
+         <li>push changes on branch to Github then create pull request</li>
+         <li>git push</li>
+         <ul>
+             <li>git push -u origin branch-name</li>
+        </ul>
+     </ul>
+     <h3>Create a pull request</h3>
+     <ul>
+         <li>request to have code pulled into another branch</li>
+         <li>pr from branch-name to master branch</li>
+         <li>anyone can review code, comment, make edits & can change pr by making commits</li>
+         <li>once merged, delete branch</li>
+     </ul>
+     <h3>Pulling to local master branch</h3>
+     <ul>
+         <li>git pull origin master</li>
+         <li>then will be able to see changes in VS Code</li>
+     </ul>
+     <h3>Deleting branch</h3>
+     <ul>
+         <li>git branch -d branch-name</li>
+     </ul>
+     <h2>Merge Conflits</h2>
+     <ul>
+         <li>multiple people trying to change the same files and Github doesn't know what to keep/delete, so need to do it manually</li>
+         <li>git merge master- keep branch up to date on local machine if master is changing</li>
+        <ul>
+            <li>Example: update same line in master and branch</li>
+            <li>terminal will show merge conflict (can fix in Github, terminal, or code)</li>
+            <ul>
+                <li>easiest to change in VS Code</li>
+            </ul>
+        </ul>
+        <li>then need to make another commit because fixed merge conflict</li>
+        <ul>
+            <li>git commit -am "updated with master"</li>
+        </ul>
+     </ul>
+     <h2>Undoing in Git</h2>
+     <ul>
+         <li>if accidentally add in Git, can undo</li>
+         <ul>
+            <li>git reset OR git reset file-name</li>
+         </ul>
+         <li>if accidentally commit in Git, can undo</li>
+         <ul>
+             <li>git reset HEAD~1</li>
+             <li>HEAD: pointer to last commit</li>
+             <li>~1: points 1 commit further</li>
+             <li>unstaged and uncommitted</li>
+         </ul>
+         <li>if want to undo multiple commits or one that is further back</li>
+         <ul>
+             <li>check git log for past commits git log --oneline</li>
+             <li>copy the commit hash</li>
+             <li>git checkout (hash) (file name)</li>
+             <li>git reset (hash)</li>
+             <li>unstages any changes made to file after selected commit</li>
+             <ul>
+                 <li>will still show in VS Code, but not in Github</li>
+             </ul>
+         </ul>
+         <li>to undo changes to commits</li>
+         <ul>
+            <li>git reset HEAD (file name)</li>
+            <li>git checkout -- index.html</li>
+         </ul>
+         <li>if want to undo everything after a certain point</li>
+         <ul>
+             <li>get hash from git log</li>
+             <li>git reset --hard (hash)</li>
+             <li>not just unstage, but completely remove </li>
+         </ul>
+     </ul>
+</body>
+</html>

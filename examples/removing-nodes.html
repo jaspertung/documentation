@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Removing Nodes Demo</title>
+    <style>
+        body {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList">
+        <li>Chicago Bulls</li>
+        <li>Portland Trail Blazers</li>
+        <li>Miami Heat</li>
+        <li>Phoenix Suns</li>
+    </ul>
+
+    <button type="button" onclick="removeListFirstChild()">Remove list first child with removeChild()</button>
+    <button type="button" onclick="removeAllListChildren()">Remove all list children with removeChild()</button>
+    <button type="button" onclick="removeList()">Remove entire list with remove()</button>
+    <p>Reload the page to reset the DOM and bring the list back.</p> 
+
+    <script>
+        const listNode = document.querySelector('#myList');
+        // use .querySelector to locate ul with id myList
+        // adds to listNode variable (global so all 3 functions can access it)
+        function removeListFirstChild() {
+            listNode.removeChild(listNode.firstElementChild);
+        }
+        // corresponds to first button
+        // removes first child of listNode with .removeChild
+        
+        // only works on every other click why??? >> whitespace nodes
+        // in console.log >> listNode.childNodes shows all the children of listNode
+        // displays NodeList(9) [text, li, text, li ,text, li, text, li, text]
+        // text nodes aren't what we see in the browser
+        // text content is new line + tab (whitespace between each li)
+        // when clicking the button, deletes whitespace nodes too so takes 2 clicks
+
+        // to fix >> use firstElementChild() instead of firstChild()
+        
+        function removeAllListChildren() {
+            while (listNode.firstChild) {
+                listNode.removeChild(listNode.firstChild);
+            }
+        }
+        // corresponds to second button
+        // in while loop to remove every child node (li) until only parent node (ul) is left
+        // ul doesn't have any children so won't show, but can see in Inspect
+
+        function removeList() {
+            listNode.remove();
+        }
+        // corresponds to third button
+        // uses .remove() so will remove the entire node branch (ul & li)
+    </script>
+</body>
+</html>

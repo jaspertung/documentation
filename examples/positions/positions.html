@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positions</title>
+    <link rel="stylesheet" href="positions.css">
+</head>
+<body>
+    <h1>Position Property</h1>
+    <section id="static">
+        <h2>Static</h2>
+        <p>positioned according to normal flow of document (default), t, r, b, l, and z-index properties have no effect</p>
+        <div></div>
+        <div id="middle"></div>
+        <div></div>
+    </section>
+    <section id="relative">
+        <h2>Relative</h2>
+        <p>positioned according to normal flow, then offset relative to itself based on t, r, b, l values</p>
+        <div></div>
+        <div id="middle"></div>
+        <div></div>
+    </section>
+    <section id="absolute">
+        <h2>Absolute</h2>
+        <p>not positioned according to normal flow, relative to closest positioned ancestor if none, then to initial containing block (in this case- body)</p>
+        <div></div>
+        <div id="middle"></div>
+        <div></div>
+    </section>
+    <section id="fixed">
+        <h2>Fixed</h2>
+        <p>positioned relative to intial containing block- stay even while scrolling (nav bar)</li>
+        <div></div>
+        <div id="middle"></div>
+        <div></div>
+    </section>
+    <section id="sticky">
+        <h2>Sticky</h2>
+        <p>positioned according to normal flow, then offset relative to nearest scrolling ancestor and containing block (nav bar) how do?</p>
+        <div></div>
+        <div id="middle"></div>
+        <div></div>
+    </section>
+</body>
+</html>

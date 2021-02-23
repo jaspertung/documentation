@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Cloning Nodes Demo</title>
+    <style>
+        body {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList">
+        <li>Red</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+
+    <button type="button" onclick="cloneListItem()">Copy just the last listitem</button>
+    <button type="button" onclick="cloneListItemBranch()">Copy the last listitem and its branch</button>
+
+    <script>
+        // 2 global variables
+        const listNode = document.querySelector('#myList');
+        // references element with id myList (ul)
+        const nodeToCopy = listNode.lastElementChild;
+        // lastElementChild of listNode
+        // the item we want to clone is the last item in the ul
+
+        function cloneListItem() {
+            const copy = nodeToCopy.cloneNode();
+            listNode.appendChild(copy);
+        }
+        // copying just a single node
+        // when button clicked >> adds list item node (only bullet point)
+        // doesn't actually show text in list item because it is a child
+
+        function cloneListItemBranch() {
+            const copy = nodeToCopy.cloneNode(true);
+            listNode.appendChild(copy);
+        }
+        // copying a node's branch (add boolean value true as argument)
+        // when button clicked >> adds list item and child (bullet point + blue)
+
+    </script>
+</body>
+</html>

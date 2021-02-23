@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>CSS</h1>
+    <nav>
+        <ul>
+            <li><a href="#basics">CSS Basics</a></li>
+            <li><a href="#selectors">CSS Selectors</a></li>
+            <li><a href="#boxmodel">CSS Box Model</a></li>
+            <li><a href="#others">Other useful CSS properties</a> </li>
+            <li><a href="#responsive">Responsive CSS & Flexbox</a> </li>
+        </ul>
+    </nav>
+    <h2 id="basics">CSS Basics</h2>
+    <h3>CSS Rules</h3>
+    <ul>
+        <li>almost everything in CSS follows this basic pattern</li>
+        <li>
+            selector { <br>
+                property: value; <br>
+            }
+        </li>
+    </ul>
+    <h3>CSS Styles</h3>
+    <ul>
+        <li>Inline styles- write styles directly inline on each element (bad b/c can't duplicate easily)</li>
+        <li>&lt;style&gt; element- write styles in head (bad b/c doesn't translate over multiple documents)</li>
+        <li>External stylesheet- write styles in .css file then link (best!)</li>
+    </ul>
+    <h3>Link Element</h3>
+    <ul>
+        <li>Link element- goes in head of html sheet</li>
+        <li>&lt;link rel="stylesheet" href="style.css"&gt;</li>
+        <link rel="stylesheet" href="style.css">
+    </ul>
+    <h3>Color</h3>
+        <ul>
+            <li>color property- change text color</li>
+            <li>background-color property- change background color</li>
+            <li>CSS Colors</li>
+            <ul>
+                <li>Named colors: white, teal, fuschia (easiest, but limited- 140 named colors)</li>
+                <li>RGB: red, green, blue channels range from 0 to 255</li>
+                <ul>
+                    <li class="red">rgb(255,0,0)</li>
+                    <li class="purple">rgb(173,20,219)</li>
+                    <li class="white">rgb(255,255,255)</li>
+                </ul>
+                <li>Hex: rgb 0-255, but represented with hexadecimal</li>
+                <ul>
+                    <li class="blue">#5FCFFC</li>
+                    <li class="maroon">#900C3F</li>
+                    <li> <span class="one">#c63</span> is same as <span class="two">#cc6633</span></li>
+                </ul>
+            </ul>
+        </ul>
+    <h3>Text</h3>
+        <ul>
+            <li>text-align- determines how text is aligned horizontally within an element (center, left, right)</li>
+            <li>font-weight- sets weight or boldness of the font (determined by font type)</li>
+            <ul>
+                <li> <span class="lighter">lighter</span>, normal, <span class="bold">bold</span>, <span class="bolder">bolder</span></li>
+                <li>100 (lighter), 400 (normal), 700 (bold), 900 (bolder)</li>
+            </ul>
+            <li>
+                text-decoration- sets the appearance of decorative lines on text (<span class="underline">underline</span>, <span class="linethrough">linethrough</span>)
+            </li>
+            <ul>
+                <li> <span class="linecolor">can add color to line</span></li>
+                <li>can add style to line (<span class="double">double</span>, <span class="dotted">dotted</span>, <span class="wavy">wavy</span>)</li>
+                <li>can get rid of default text decoration (anchor tags)</li>
+            </ul>
+            <li><span class="lineheight">line-height- sets height of line box</span></li>
+            <li><span class="spacing">letter-spacing- sets horizontal spacing between text</span></li>
+        </ul>
+    <h3>Font Size</h3>
+        <ul>
+            <li>Relative vs Absolute units</li>
+            <ul>
+                <li>relative (EM, REM, VH, VW, %)- end result will change depending (better for responsive websites)</li>
+                <li>absolute (PX, PT, CM, IN, MM)- end result size doesn't depend on other elements</li>
+            </ul>
+            <li>font-size: 20px;</li>
+        </ul>
+    <h3>Font Family</h3>
+        <ul>
+            <li>depends on fonts built into browser (web-safe- can assume most users have in their system)</li>
+            <li>add font stack- list of fonts in priority order for back ups</li>
+            <ul>
+                <li><span class="fontfamily">font-family: 'Times New Roman', Times, serif</span></li>
+            </ul>
+        </ul>
+    <h2 id="selectors">CSS Selectors</h2>
+        <ul>
+            <li>Universal selector- selects everything (* {})</li>
+            <li>Element selector- selects everything of a certain type (button, headings, p)</li>
+            <li>Selector list- combine multiple selectors in a list (h1,h2)</li>
+            <li>ID selector- select only one thing (#ID {})</li>
+            <li>Class selector- select grouped elements with specified class(.class {})</li>
+            <li>Descendant selector- select all descendants within an element (li a {})</li>
+            <ul>
+                <li>all anchor tags nested within list elements</li>
+                <li>can combine using class selectors in descendant selector</li>
+            </ul>
+            <li>Adjacent selector- select only the elements immediately after the first element and in same parent element (h1 + p {})</li>
+            <li>Direct child selector- selects only direct children elements of the first element (footer &gt; a {})</li>
+            <ul>
+                <li>footer <br> ul <br> li a <br> li a <br> /ul <br> a</li>
+                <li>only the a not in list is selected beause direct child of footer and not nested in ul</li>
+            </ul>
+            <li>Attribute selector- selects elements with certain attributes (input[type="text"] {})</li>
+            <ul>
+                <li>can choose class, id, input</li>
+            </ul>
+        </ul>
+    <h3>Psuedo Classes</h3>
+        <ul>
+            <li>Keyword added to a selector that specifies a special state of the selected element(s)</li>
+            <li>always starts with a colon</li>
+            <li>Common examples: :active, :checked, :first, :hover, :not(), :nth-child()</li>
+            <li>:hover- change when mouse hovers (button color, underline link) (.post a:hover {})</li>
+            <li>:active- change when active (button pressed, link pressed) (.post button:active {}
+            <li>:nth-of-type()- changes elements based on position (highlight every other post) (.post:nth-of-type(2n))</li>
+        </ul>
+    <h3>Psuedo Elements</h3>
+        <ul>
+            <li>Keyword added to a selector that lets you style a particular part of a selected element(s)</li>
+            <li>always starts with 2 colons</li>
+            <li>Common examples: ::after, ::before, ::first-letter, ::first-line, ::selection</li>
+        </ul>
+    <h3>CSS Cascade</h3>
+    <ul>
+        <li>the order your styles are declared in stylesheet and linked to HTML doc matters</li>
+        <li>later commands overwrite previous commands</li>
+    </ul>
+    <h3>Specificity</h3>
+    <ul>
+        <li>how the browser decides which rules to apply when multiple rules could apply to the same element</li>
+        <li>more specific selectors "win"</li>
+        <li>ID > class, attribute, pseudo-class > element, pseuo-element</li>
+    </ul>
+    <h3>Not Recommended</h3>
+    <ul>
+        <li>Inline styles: more specific than ID, class, and element</li>
+        <li>!important: most specific, not common, only use on page-specific CSS that overrides foreign CSS (external library)</li>
+    </ul>
+    <h3>Inheritance</h3>
+    <ul>
+        <li>Some property values set on parent elements are inherited by their child elements</li>
+        <li>ex. if set color on an element, every element inside it will have that color, unless a different color was applied directly to them</li>
+    </ul>
+    <h2 id="boxmodel">CSS Box Model</h2>
+    <img src="https://codinglead.github.io/images/box-model.png" alt="box model">
+    <h3>Width and Height</h3>
+    <ul>
+        <li>use width and height to change content box size</li>
+        <li>can use px, em, %, auto (centers)</li>
+    </ul>
+    <h3>Border and Border Radius</h3>
+    <ul>
+        <li>border-width: thin, thick / 4px, border-color, border-style: solid, dashed, dotted -> need to have all 3 together (order doesn't matter)</li>
+        <li>shorthand: combine all 3 as border: width style color</li>
+        <li>adding borders increases the total width and height of the content box</li>
+        <ul>
+            <li>unless use box-sizing: border-box, then box size will stay the same and border subtracts from box</li>
+        </ul>
+        <li>can change specific sides (border-left-width, border-top-color)</li>
+        <li>border-radius: to round corners of borders (px or %)</li>
+        <ul>
+            <li>can make circle border with 50%</li>
+        </ul>
+    </ul>
+    <h3>Padding</h3>
+    <ul>
+        <li>space inside an elements border</li>
+        <li>padding-left, padding-right, padding-bottom, padding-top</li>
+        <li>shorthand: padding</li>
+        <ul>
+            <li>set all 4 at once, vertical|horizontal, top|horizontal|bottom, top|right|bottom|left</li>
+        </ul>
+    </ul>
+    <h3>Margin</h3>
+    <ul>
+        <li>space outside of elements border separating it from other elements</li>
+        <li>shorthand works same way as padding</li>
+        <li>can use auto to automatically center element within its container</li>
+    </ul>
+    <h3>Display Property</h3>
+    <ul>
+        <li>can change block elements to inline or vice versa</li>
+        <li>inline value: width & height are ignored, margin & padding push elements away horizontally but not vertically</li>
+        <ul>
+            <li> <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <span class="inline">I AM SPAN!</span> Officiis, nostrum?</p> </li>
+        </ul>
+        <li>block value: block elements break the flow of a document. width, height, margin, and padding are respected</li>
+        <ul>
+            <li>
+            <h3 class="block">I AM H1</h3>
+            <h3 class="block">ME TOO</h3>
+            </li>
+        </ul>
+        <li>inline-block value: behaves like an inline element except width, height, margin, & padding are respected</li>
+        <ul>
+            <li><div class="inlineblock"></div><div class="inlineblock"></div><div class="inlineblock"></div></li>
+        </ul>
+        <li>none value: element still present, just not displayed (useful for JS)</li>
+    </ul>
+    <h3>CSS Units (revisited)</h3>
+    <ul>
+        <li>percentage- always relative to some other value (sometimes from parent or a value of the element itself)</li>
+        <ul>
+            <li>width: 50% half the width of the parent (like container)</li>
+            <section class="percentage">
+                <div class="percentage"></div>
+            </section>
+            <li>line-height: 50% half the font-size of the element itself</li>
+        </ul>
+        <li>em- font size of the parent (for typographical properties like font-size) and font size of the element itself (for other properties like width)</li>
+        <ul class="units">
+            <li>font-size: 1em is the font-size of the parent so 2em is twice the font-size of the parent</li>
+            <ul>
+                <li><h4>I am h4 and 0.8em</h4> <p class="em">I am p and 2em</p></li>
+            </ul>
+            <li>other properties: 1em is equal to the computed font-size of the element itself</li>
+            <ul>
+                <li><button class="emem">Clickity</button></li>
+            </ul>
+            <li>issue with em: they can stack as there is more nesting and parents (ul inside ul), but good when component is reusable and want to scale it</li>
+        </ul>
+        <li>rem (root ems): relative to root html element's (&lt;html lang="en"&gt;) font-size</li>
+        <ul>
+            <li>rather than scaling from parent element, scale from root element</li>
+            <li>if root font-size is 20px, 1rem is always 20px and 2rem is always 20px</li>
+            <article class="emex">
+                <ul>
+                    <li>em</li>
+                    <li>
+                        pasta
+                        <ul>
+                            <li>
+                                ravioli
+                                <ul>
+                                    <li>pesto</li>
+                                </ul>
+                            </li>
+                            <li>penne</li>
+                        </ul>
+                    </li>
+                    <li>pizza</li>
+                </ul>
+            </article>
+            <article class="remex">
+                <ul>
+                    <li>rem</li>
+                    <li>
+                        pasta
+                        <ul>
+                            <li>
+                                ravioli
+                                <ul>
+                                    <li>pesto</li>
+                                </ul>
+                            </li>
+                            <li>penne</li>
+                        </ul>
+                    </li>
+                    <li>pizza</li>
+                </ul>
+            </article>
+        </ul>
+    </ul>
+    <h2 id="others">Other useful CSS properties</h2>
+    <h3>Alpha Channel & Opacity</h3>
+    <ul>
+        <li>Alpha Channel: from 0 (transparent) - 1 (opaque)</li>
+        <ul>
+            <li>#00cca00 00 (transparent) to FF (opaque)</li>
+            <li>rgba(255, 255, 255, 0.7)</li>
+            <li>Only applies to background colors of elements</li>
+        </ul>
+        <li>Opacity: from 0 (transparent) - 1 (opaque)</li>
+        <ul> 
+            <li>Applies to all of element's contents and descendants</li>
+        </ul>
+    </ul>
+    <h3>Position</h3>
+    <ul>
+        <li>Sets how an element is positioned in a document, top, right, bottom, left properties determine the final location of positioned elements</li>
+        <li><a href="/examples/positions/positions.html" target="_blank">Examples</a></li>
+        <li>static- positioned according to normal flow of document (default)</li>
+        <li>relative- positioned according to normal flow, then offset relative to itself</li>
+        <li>absolute- not positioned according to normal flow, relative to closest positioned ancestor if none, then to initial containing block</li>
+        <li>fixed- positioned relative to intial containing block- stay even while scrolling (nav bar)</li>
+        <li>sticky- starts not fixed, but then becomes fixed later (nav bar)</li>
+    </ul>
+    <h3>Transitions</h3>
+    <ul>
+        <li>can specify property name, duration, timing function, delay</li>
+        <li>transition: background-color 1s 1s;</li>
+        <li>should single out properties you want to transition</li>
+        <li>timing functions: linear, steps, ease in, ease out, cubic-bezier</li>
+        <section class="transitions">
+            <div class="tone">linear</div>
+            <div class="ttwo">ease in</div>
+            <div class="tthree">steps</div>
+            <div class="tfour">cubic-bezier</div>
+        </section>       
+    </ul>
+    <h3>Transform</h3>
+    <ul>
+        <li>rotate(): rotates around a fixed point on 2D plane</li>
+        <ul>
+            <li>rotateX(), rotate3d(), rotateY(), rotateZ()</li>
+            <li>transform: rotate(45deg), transform: rotateX(0.5turn)</li>
+        </ul>
+        <li>scale(): change the size of an element</li>
+        <ul>
+            <li>scaleX(), scale3d(), scaleY(), scaleZ()</li>
+            <li>transform: scale(0.5), transform: scaleY(1.5)</li>
+        </ul>
+        <li>translate(): moves an element on 2D plane</li>
+        <ul>
+            <li>translateX(), translate3d(), translateY(), translateZ()</li>
+            <li>transform: translate(-200px, 50px), transform: translateZ(20em)</li>
+        </ul>
+        <li>skew(): skews an element</li>
+        <ul>
+            <li>skewX(), skewY()</li>
+            <li>transform: skew(15deg, 15deg), transform: skewX(0.25turn)</li>
+        </ul>
+        <li>transform-origin: sets the origin for an item's transformation (bottom right, 50px 50px)</li>
+        <li>can combine- transform: translateX(-500px) rotate(0.5turn) scaleY(1.5);</li>
+        <li>applies to everything in container</li>
+    </ul>
+    <a href="Hover Button/hoverbutton.html" target="_blank">Hover Button Project</a>
+    <section class="bg">
+        <h3>Background</h3>
+            <ul>
+                <li>background-image: "url" or file</li>
+                <li>background-size: cover, contain</li>
+                <li>background-repeat:</li>
+                <li>background-position: sets initial position (top, left, bottom)</li>
+                <li>shorthand- order doesn't matter except size has to be right after position (position/size)</li>
+            </ul>
+    </section>
+    <h3>Google Fonts</h3>
+    <ul>
+        <li>built-in web-safe fonts: small selection</li>
+        <li>more free fonts on Google Fonts with different font weights</li>
+        <li>select desired weights then copy embed link to head section in html</li>
+        <li>then assign font-family in CSS</li>
+    </ul>
+
+    <h2 id="responsive">Responsive CSS & Flexbox</h2>
+    <h3>Flexbox</h3>
+    <ul>
+        <li>one-dimensional layout method for laying out items in rows or columns</li>
+        <li>flex because can distribute space dynamically across elements of an unknown size</li>
+    </ul>
+    <h3>Flex-Direction</h3>
+    <ul>
+        <li>display: flex; (fit to container)</li>
+        <li>main axis: defined by the direction set by the flex-direction property</li>
+        <ul>
+            <li>flex-direction: row; (default- left to right)</li>
+            <li>flex-direction: row-reverse; (right to left)</li>
+            <li>flex-direction: column (default- top to bottom)</li>
+            <li>flex-direction: column-reverse; (bottom to top)</li>
+        </ul>
+        <li>cross axis: axis perpendicular to the main axis</li>
+    </ul>
+    <h3>Justify-Content</h3>
+    <ul>
+        <li>defines how items along the main-axis of a flex container are distributed</li>
+        <li>flex-start- from the start of main axis</li>
+        <li>flex-end- from the end of main axis</li>
+        <li>center- center along main axis</li>
+        <li>space-between- space between elements but not on outside edges</li>
+        <li>space-around- same space around all elements</li>
+        <li>space-evenly- even spaces between all elements</li>
+    </ul>
+    <span><a href="https://codepen.io/jtung530/pen/ExgdvrL" target="_blank">
+        Justify Content Example</a>
+    </span>
+    <h3>Flex-Wrap</h3>
+    <ul>
+        <li>wrap- if overflowing container, wraps to next line</li>
+        <li>wrap reverse- cross axis switches</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="top">Documentation</h1>
+    <nav>
+        <ul>
+            <li>This is a nav bar</li>
+            <li><a href="#html">HTML</a></li>
+            <li><a href="css.html">CSS</a></li>
+            <li><a href="js.html">Javascript</a></li>
+            <li><a href="git-github.html">Git & Github</a></li>
+            <li><a href="bootstrap.html">Bootstrap</a></li>
+        </ul>
+    </nav>
+    
+    <div>
+        <h2>Internet Basics</h2>
+    <ol>
+        <li>HTTP Requests</li>
+        <li>IP Address</li>
+        <li>Servers</li>
+    </ol>
+    </div>
+
+    <section>
+    <h2>VS Code Tips</h2>
+    <ul>
+        <li>Boilerplate shortcut- ! + tab</li>
+        <li>Comment shortcut- ctrl+/</li>
+        <li>Lorem shortcut- Lorem + tab</li>
+        <li>Hold option/alt while clicking for multiple cursors</li>
+        <li>Enable auto save under File</li>
+        <li>Install Live Server extension to see changes in browser automatically</li>
+        <li>Install Material Theme and Prettier</li>
+        <li>Toggle word wrap in View</li>
+    </ul>
+    </section>
+
+    <section>
+    <h2 id="html">HTML</h2>
+    <ul>
+        <li>Stands for <b>Hyper Text Markup Language</b></li>
+        <li>Save file as .html</li>
+        <li>Comment shortcut ctrl+/</li>
+        <li>Boilerplate shortcut- ! then tab</li>
+        <ol>
+            <li>!Doctype</li>
+            <li>HTML</li>
+            <li>Head</li>
+            <ol>
+                <li>Title</li>
+            </ol>
+            <li>Body</li>
+        </ol>
+        <li>Elements- all content in HTML documents are contained within elements</li>
+        <ul>
+            <li>ex. &lt;p&gt; &lt;/p&gt;</li>
+            <li>have opening and closing tags</li>
+            <li>tags + content = element</li>
+        </ul>
+        <li>Void elements- element with a self closing tag</li>
+        <ul>
+            <li>ex. &lt;meta charset="utf=8"&gt;</li>
+            <li>can have attributes</li>
+        </ul>
+    </ul>
+    <h3>Tags</h3>
+    <ul>
+        <li>Headings (h1-h6)</li>
+        <li>Paragraph</li>
+        <li><i>i</i></li>
+        <li><b>b</b></li>
+        <li>lorem tab- creates lorem ipsum text</li>
+        <li>div- groups content for styling (block element- paragraph, heading)</li>
+        <li>span- groups content for styling (inline element- anchor, image)</li>
+        <li>hr- horizontal rule</li>
+        <hr>
+        <li>br- line break in text</li>
+        <ul>
+            <li>oiejgoiejgreoij<br>diruhg<br>tdiu</li>
+        </ul>
+        <li>superscript (exponent)</li>
+        <ul>
+            <li>a<sup>2</sup>+b<sup>2</sup>=c<sup>2</sup></li>
+        </ul>
+        <li>subscript</li>
+        <ul>
+            <li>H<sub>2</sub>O</li>
+            <li><sup>1</sup>/<sub>2</sub></li>
+        </ul>
+        <li>HTML entities: for different symbols (copyright) start with &amp;, end with ;</li>
+        <ul>
+            <li>less than: &lt;</li>
+            <li>greater than: &gt;</li>
+            <li>&spades;&hearts;&clubs;&diams;</li>
+        </ul>
+    </ul>
+    <h3>Semantic/Meaningful Markup</h3>
+    <ul>
+        <li>not calling everything div -> gives more info and more organized and accessible</li>
+        <li>&lt;main&gt;- unique to the document, not repeated on other pages (not logos, nav)</li>
+        <li>&lt;nav&gt;- anything that provides navigation links</li>
+        <li>&lt;section&gt;- standalone section (heading plus paragraph)</li>
+        <li>&lt;article&gt;- self-contained composition (forum post, article, blog entry)</li>
+        <li>&lt;aside&gt;- portion that is indirectly related to main content (sidebar)</li>
+        <li>&lt;header&gt;- introductory and navigational content</li>
+        <li>&lt;footer&gt;- ending stuff with copyright, author info, contact</li>
+        <li>&lt;time&gt;</li>
+        <li>&lt;figure&gt;- can include &lt;figcaption&gt;</li>
+    </ul>
+    <h3>Attributes</h3>
+    <ul>
+        <li>Attributes- additional values that change elements in a certain way</li>
+        <li>Common examples: form, href, placeholder, required, src, type, value</li>
+        <li>Format- key value pair- name="value"</li>
+        <li>Input</li>
+        <ul>
+            <li>&lt;input type="_"&gt;</li>
+        </ul>
+        <li>Images</li>
+        <ul>
+            <li>&lt;img src="link or file" alt="description of image&gt;</li>
+        </ul>
+        <li>Links</li>
+        <ul>
+            <li>
+                &lt;a href="url"> Link Text &lt;/a&gt;
+            </li>
+            <li>Absolute- need to use http:// url</li>
+            <li>Relative- looks for location of the file relative to the page where the link appears</li>
+            <ul>
+                <li>no path provided: in the same folder as the original page</li>
+                <li>&lt;a href="file.html"> Link Text &lt;/a&gt;</li>
+                <li>path provided (/): in a subfolder of the current folder</li>
+                <li>&lt;a href="folder/file.html"> Link Text &lt;/a&gt;</li>
+                <li>(../): in a folder above the current folder</li>
+                <li>&lt;a href="../file.html"> Link Text &lt;/a&gt;</li>
+            </ul>
+            <li>Boolean attributes- attribute that only has a name and no value</li>
+            <ul>
+                <li>ex. &lt;p id="welcome" hidden&gt;</li>
+                <li>hidden is a boolean attribute that hides the element from view</li>
+            </ul>
+        </ul>
+    </ul>
+    <h3>Tables</h3>
+    <ul>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&lt;thead&gt;</td>
+                    <td>table heading</td>
+                </tr>
+                <tr>
+                    <td>&lt;tbody&gt;</td>
+                    <td>table body</td>
+                </tr>
+                <tr>
+                    <td>&lt;table&gt;</td>
+                    <td>create table</td>
+                </tr>
+                <tr>
+                    <td>&lt;table border="1"&gt;</td>
+                    <td>table border (usually in CSS)</td>
+                </tr>
+                <tr>
+                    <td>&lt;tr&gt;</td>
+                    <td>table row</td>
+                </tr>
+                <tr>
+                    <td>&lt;th&gt;</td>
+                    <td>table heading</td>
+                </tr>
+                <tr>
+                    <td>&lt;td&gt;</td>
+                    <td>table data</td>
+                </tr>
+            </tbody>
+        </table>
+    </ul>
+    <h3>Forms</h3>
+    <ul>
+        <!-- Forms -->
+        <li>
+            &lt;form action="url specifying where to send form data" method="specifies which HTTP request type (get/post)"&gt;
+        </li>
+        <ol>
+            <li>Get request- searching/retrieving data (ex. google search)</li>
+            <li>Post request- sending data (ex. sign up) </li>
+        </ol>
+        <li>
+            &lt;input type="_"&gt; creates interactive controls
+        </li>
+        <ul>
+            <li>type= text, password, date, color, file, checkbox...</li>
+        </ul>
+        <li>add name attribute in input tag so when data is sent out it is properly labeled</li>
+            <ul>
+                <li>to match Google search, name="q"</li>
+                <li>
+                    <form action="https://www.google.com/search">
+                        <input type="text" name="q">
+                        <button>Search Google</button>
+                    </form>
+                </li>
+            </ul>
+        <li>
+            <form action="/whoop">
+                <label for="email">Email:</label>
+                <input name="email" type="email" placeholder="email" required>
+                <label for="username">Username:</label>
+                <input name="username" type="text" placeholder="username" minlength="4" maxlength="15" required>
+                <label for="password">Password:</label>
+                <input name="password" type="password" placeholder="password" required>
+                <button>Submit</button>
+            </form>
+        </li>
+        <li>Form Label: include for in label and id in input
+            <ul>
+                <li>
+                    <label for="username">Username:</label>
+                    <input id="username" type="text" placeholder="username" required>
+                </li>
+            </ul>
+        </li>
+        <li> Button- needs to be within form with an action specified
+            <form action="/button">
+            <ul>
+                <li>
+                    <button>Default submit</button>
+                </li>
+                <li>
+                    <button type="submit">Type: Submit</button>
+                </li>
+                <li>
+                    <button type="button">Just a button</button>
+                </li>
+            </ul>
+            </form>
+        </li>
+        <li>Radio Button Input
+            <ul>
+                <li>&lt;input type="radio" name="_" id="_" value="_"&gt;- only 1 choice (M,F, other)</li>
+                <ul>
+                    <li>need to add value to clarify data for server</li>
+                    <li>Do you prefer dogs or cats?
+                        <form>
+                            <label for="dogs">Dogs:</label>
+                            <input name="petchoice" id="dogs" type="radio" value="DOGS">
+    
+                            <label for="cats">Cats:</label>
+                            <input name="petchoice" id="cats" type="radio" value="CATS">
+    
+                            <button>Go!</button>
+                        </form>
+                    </li>
+                    <li>under the name (petchoice) store the value (DOGS)</li>
+                </ul>
+            </ul>
+        </li>
+        <li>Checkbox Input
+            <ul>
+                <li>&lt;input type="checkbox" id="_" name="_"&gt;- multiple choices</li>
+                    <ul>   
+                        <li>
+                            <form action="/whee">
+                                <label for="agree">Agree</label>
+                                <input type="checkbox" id="agree" name="agree" checked>
+                                <label for="disagree">Disagree</label>
+                                <input type="checkbox" id="disagree" name="disagree">
+                                <button>Submit</button>
+                            </form>
+                        </li>
+                    </ul>
+            </ul>
+        </li>
+        <li>Select Tag
+            <ul>
+                <li>What's your current mood?
+                    <form>
+
+                        <select name="mood">
+                            <option value="happy">:)</option>
+                            <option value="meh">:/</option>
+                            <option value="sad">:(</option>
+                        </select>
+
+                        <button>Go!</button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+        <li>Range Input
+            <ul>
+                <li>&lt;input type="range" id="_" name="_" min="_" max="_" step="_"&gt;</li>
+                <li>
+                    <form>
+                        <label for="cheese">Amount of Cheese:</label>
+                        <input type="range" id="cheese" min="1" max="100" name="cheese_level">
+                        <button>Submit</button>
+                    </form>
+                </li>
+            </ul>
+        </li>
+        <li>Number Input
+            <ul>
+                <li>
+                    <form action="/number">
+                        <label for="number">Enter number:</label>
+                        <input type="number" min="10" max="50" step="5">
+                    </form>
+                </li>
+            </ul>
+        </li>
+        <li>Textarea Tag
+            <ul>
+                <li>
+                    <textarea name="paragraph" row="20" cols="40" placeholder="enter text here"></textarea>
+                </li>
+            </ul>
+        </li>
+        <li> Form Validations
+            <ul>
+                <li>presence validation- makes sure something is there (required, minlength)</li>
+                <li>data type/format (email- @something.com)</li>
+            </ul>
+        </li>
+    </ul>
+    </section>  
+</body>
+
+</html>
