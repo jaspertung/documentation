@@ -9,11 +9,20 @@
 </head>
 <body>
     <h1>Bootstrap</h1>
+    <nav>
+        <ul>
+            <li><a href="#grid">Bootstrap Grid</a></li>
+            <li><a href="#components">Bootstrap Components</a></li>
+            <li><a href="#">_</a> </li>
+            <li><a href="#">_</a> </li>
+        </ul>
+    </nav>
     <h2>Front End Framework</h2>
     <p>Bootstrap is one of the most well-known front end UI frameworks<br>
     free, open-source collection of CSS code<br>
     can make responsive and mobile-first designs easily</p>
-    <h2>Bootstrap Grid</h2>
+    <a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" target="_blank">Bootstrap Documentation</a>
+    <h2 id="grid">Bootstrap Grid</h2>
     <p>creates a grid layout on a page to control where elements are placed</p>
     <ul>
         <li>need to have &lt;meta name="viewport"&gt; and &lt;link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/&gt;</li>
@@ -53,8 +62,8 @@
     <table>
         <thead>
             <tr>
-                <td>Size</td>
-                <td>Viewport Width</td>
+                <th>Size</th>
+                <th>Viewport Width</th>
             </tr>
         </thead>
         <tbody>
@@ -107,5 +116,113 @@
         <li>jumbotron: used to call extra attention to a section that shows key messages</li>
         <li>list-unstyled: removes default listitem styles (ex. bullet points)</li>
     </ul>
+    <h2 id="components">Bootstrap Components</h2>
+    <h3>Color & Spacing Utility Classes</h3>
+    <ul>
+        <li>only small set amount of colors, need to use own CSS stylesheet to customize</li>
+        <li>text: use .text-__ prefix</li>
+        <ul>
+            <li>Example: .text-white</li>
+        </ul>
+        <li>background: use .bg-__ prefix</li>
+        <ul>
+            <li>Example: .bg-info</li>
+        </ul>
+        <li>margin and padding syntax: propertysides-(breakpoint)-size</li>
+        <ul>
+            <li>property: m-margin and p-padding</li>
+            <li>sides: t-top, b-bottom, l-left, r-right</li>
+            <li>size: 0, 1-5, or auto</li>
+            <li>Example: mt-5 or pl-md-3</li>
+        </ul>
+    </ul>
+    <h3>Navbar</h3>
+    <h4>Breadcrumbs</h4>
+    <p>3 types</p>
+    <ul>
+        <li>location: static, show where page is located in website hierarchy (ex. library -> events)</li>
+        <li>attribute: give info that categorizes the current page based on attributes chosen by the user (ex. rugs -> round)</li>
+        <li>path: show users steps taken to get to current page (confusing, least often used)</li>
+    </ul>
+    <h4>Dos and Don'ts of navigation design</h4>
+    <ul>
+        <li>DO use user-friendly, simple terms (ex. "About Us" rather than "Corporate Profile")</li>
+        <li>DO be consistent - provide same navigation throughout website</li>
+        <li>DO make sure that clicking on name/logo of website in header will take users back to homepage</li>
+        <li>DON'T use too many options (submenus if necessary, but sparingly)</li>
+        <li>DON'T use vague terms (ex. "Tours" instead of "Services")</li>
+        <li>DON'T make it difficult to users to figure out where they are in the hierarchy of your website</li>
+    </ul>
+    <h4>Bootstrap Navbar Component</h4>
+    <ul>
+        <li>navbar base class component: &lt;nav class="navbar"&gt;</li>
+        <li>make navbar horizontal for small and up (xs will be vertical): &lt;nav class="navbar navbar-expand-sm"&gt; & &lt;ul class="navbar-nav"&gt;</li>
+        <li>style nav items: &lt;class="nav-item (active)"&gt;</li>
+        <li>style nav links: &lt;a class="nav-link" href="#"&gt;</li>
+        <li>better contrast for dark background: &lt;nav class="navbar navbar-expand-sm navbar-dark"&gt;</li>
+        <li>make navbar stay at the top when scrolling: &lt;nav class="navbar navbar-expand-sm navbar-dark sticky-top"&gt;</li>
+    </ul>
+    <h3>Icon Fonts</h3>
+    <p>Used to use image files for icons, now can use icon fonts or SVG icons<br>can style icons like normal text with CSS</p>
+    <ul>
+        <li>Installing fontawesome.com (toolkit of icons)</li>
+        <ul>
+            <li>npm install font-awesome@4.7.0</li>
+            <li>&lt;link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"&gt;</li>
+            <ul>
+                <li>additional CSS must be placed after Bootstrap CSS</li>
+            </ul>
+        </ul>
+        <li>Adding icons</li>
+        <ul>
+            <li>&lt;i class="fa"&gt;&lt;/i&gt;</li>
+            <ul>
+                <li>must add base class of fa</li>
+            </ul>
+            <li>then add icon (ex. fa-home, fa-info, fa-list, fa-address-book)</li>
+            <li>(optional) add sizing class (ex. fa-lg)</li>
+            <li>(optional) style using Bootstrap (ex. text-primary) or CSS</li>
+        </ul>
+    </ul>
+    <h3>Buttons</h3>
+    <ul>
+        <li><a href="https://lipis.github.io/bootstrap-social/">Social Buttons for Bootstrap</a> </li>
+        <li>base class of btn</li>
+        <li>can making anchor link and icon into button</li>
+        <ul>
+            <li>&lt;a role="button" class="btn btn-link" href="tel:+12065551234"&gt;&lt;i class="fa fa-phone"&gt;&lt;/i&gt; 1-206-555-1234&lt;/a&gt;</li>
+            <li>role="button" is html for screen readers</li>
+            <li>href="tel" will try to find default app to call number</li>
+        </ul>
+    </ul>
+    <h3>Tables</h3>
+    <ul>
+        <li>use normal html for table first (table, thead/tbody, tr, th/td)</li>
+        <li>then can add bootstrap table component classes</li>
+        <ul>
+            <li>ex. table (default styling), table-striped, table-bordered, table-dark</li>
+        </ul>
+        <li>responsive table: horizontal scroll bar just on table instead of whole page when in small viewport</li>
+        <ul>
+            <li>&lt;div class="table-responsive"&gt;</li>
+        </ul>
+    </ul>
+    <h3>Cards</h3>
+    <ul>
+        <li>lightweight and flexible container to display data</li>
+        <li>&lt;div class="card"&gt;</li>
+        <li>default takes up entire screen so can specify width or put it in a Bootstrap grid</li>
+        <li>default has no margins or padding</li>
+        <ul>
+            <li>use class="card-body"</li>
+        </ul>
+        <li>class="card-header"</li>
+        <ul>
+            <li>can use div or header tags (ex. h2, h3)</li>
+        </ul>
+        <li>can use Bootstrap color & spacing utility classes (bg-dark, text-white)</li>
+        <li>can add Bootstrap borders (ex. border-info)</li>
+    </ul>
+    <h3>Forms</h3>
 </body>
 </html>
