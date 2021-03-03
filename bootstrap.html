@@ -13,7 +13,7 @@
         <ul>
             <li><a href="#grid">Bootstrap Grid</a></li>
             <li><a href="#components">Bootstrap Components</a></li>
-            <li><a href="#">_</a> </li>
+            <li><a href="#js">JavaScript Components</a> </li>
             <li><a href="#">_</a> </li>
         </ul>
     </nav>
@@ -250,6 +250,48 @@
         <li>to put image and text next to each other instead of block level element</li>
         <li>in div wrapping media AND text: class="media"</li>
         <li>in div wrapping text only: class="media-body"</li>
+    </ul>
+    <h2 id="js">JavaScript Components</h2>
+    <ul>
+        <li>JavaScript plugins have greater functionality</li>
+        <li>don't need to write any JS, use Bootstrap HTML custom data (data-*) attributes</li>
+    </ul>
+    <h3>HTML Custom Data-* Attributes</h3>
+    <ul>
+        <li>lets you create custom attributes to store any data you want in any HTML element (can be accessed later with JS or CSS)</li>
+        <li>data-(string of choice) (ex. data-toggle, data-target)</li>
+    </ul>
+    <h3>Navs and Tabs</h3>
+    <ul>
+        <li>can use Bootstrap nav classes with either ul or nav HTML elements</li>
+        <ul>
+            <li>ex. simple sets of links (horizontal/vertical) or more complex tabs or pills (can add JS plugins for panes of content)</li>
+            <li>can use Bootstrap's built-in custom data attributes</li>
+        </ul>
+        <li>ul class= "nav nav-tabs"</li>
+        <li>li class= "nav-item"</li>
+        <li>a class= "nav-link" role= "tab" data-toggle= "tab"</li>
+        <ul>
+            <li>nav-link: active, disabled</li>
+            <li>role for dyanimc tabbed interfaces</li>
+            <li>data-toggle: tab, dropdown, pill</li>
+        </ul>
+        <li>div class="tab-content"</li>
+        <li>div role="tabpanel" class="tab-pane fade (show active)" id="#"</li>
+    </ul>
+    <h3>Collapse and Accordion</h3>
+    <ul>
+        <li>collapse: toggles parts of a webpage in and out of view</li>
+        <ul>
+            <li>highly flexible with JS plugins, data attributes, and custom JS</li>
+        </ul>
+        <li>collapse + card = accordion</li>
+        <li>div id="acordion"</li>
+        <li>div class="card"</li>
+        <li>div role="rab" class="card-header"</li>
+        <li>heading a data-toggle="collapse" data-target="#id"</li>
+        <li>div class="collapse show" id="id" data-parent="#accordion"</li>
+        <li>div class="card-body"</li>
     </ul>
 </body>
 </html>
