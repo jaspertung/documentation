@@ -293,5 +293,24 @@
         <li>div class="collapse show" id="id" data-parent="#accordion"</li>
         <li>div class="card-body"</li>
     </ul>
+    <h3>Tooltips</h3>
+    <ul>
+        <li>tooltips: displays more information when hovering over an element</li>
+        <ul>
+            <li>data-toggle="tooltip" & title="content in tooltip"</li>
+        </ul>
+        <li>popovers: displays more information when clicking on an element</li>
+        <ul>
+            <li>data-toggle="popover"</li>
+        </ul>
+        <li>uses popper.js- library for tooltips, popovers, modals, and dropdowns</li>
+        <li>need to add jquery to initialize tooltips</li>
+        <ul>
+            <li>&lt;script&gt;<br> $(function () {<br>$('[data-toggle="tooltip"]').tooltip()<br>})<br>&lt;/script&gt;</li>
+        </ul>
+        <li>then build tooltips using custom data attributes</li>
+        <li>to add HTML to tooltip: data-html="true"</li>
+        <li>data-placement="top, left, right, or bottom"</li>
+    </ul>
 </body>
 </html>
