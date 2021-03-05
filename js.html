@@ -334,8 +334,9 @@
         </ul>
         <li>Logical And (&&)</li>
         <ul>
-            <li>returns first false value or last truthy value</li>
-            <li>tests if the left operand is truthy or falsy</li>
+            <li>checks if both operands are truthy</li>
+            <li>if true, returns last truthy value</li>
+            <li>if false, returns first falsy value</li>
             <table border="1">
                 <thead>
                     <tr>
@@ -362,14 +363,13 @@
                     </tr>
                 </tbody>
             </table>
-            <li>&& returns the last truthy value if and only if both operands are truthy</li>
-            <li>if either operand is falsy, then && returns the first falsy value</li>
             <img src="./img/logical-and.png" height="200">
         </ul>
         <li>Logical Or (||)</li>
         <ul>
-            <li>reutrns first truthy value or last falsy value</li>
-            <li>tests if the left operand is truthy or falsy</li>
+            <li>checks for one truthy operand</li>
+            <li>if true, returns first truthy value</li>
+            <li>if false, returns last falsy value</li>
             <table border="1">
                 <thead>
                     <tr>
@@ -396,8 +396,6 @@
                     </tr>
                 </tbody>
             </table>
-            <li>|| returns the first truthy value</li>
-            <li>if neither operand is truthy, then it will return the last falsy value</li>
             <img src="./img/logical-or.png" height="200">
         </ul>
         <li>Logical Not (!)</li>
