@@ -1219,5 +1219,26 @@
             </ul>
         </ul>
     </ul>
+    <h2>Function Expressions</h2>
+    <ul>
+        <li>similar to function declaration, but more concise</li>
+        <li>anonymous function: no name after function keyword</li>
+        <ul>
+            <li>can add a name, but won't be able to call it outside of the function (usually anonymous)</li>
+        </ul>
+        <li>can't be hoisted (need to define function before calling it)</li>
+    </ul>
+    <h2>Arrow Functions</h2>
+    <ul>
+        <li>syntax</li>
+        <ul>
+            <li>1 parameter</li>
+            <li>const variable = (param) => param * 2 {<br>console.log(variable(2));</li>
+            <li>2 parameters</li>
+            <li>const variable = (param1, param2) => param1 + param2 {<br>console.log(variable(1,2));</li>
+            <li>multi line</li>
+            <li>const variable = (param1, param2) => {<br> const variable2 = param1 + param2 <br>return variable2;<br>}<br>console.log(variable(1,2));</li>
+        </ul>
+    </ul>
 </body>
 </html>

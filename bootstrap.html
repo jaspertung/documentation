@@ -337,5 +337,74 @@
         <li>span class="carousel-control-prev-icon"</li>
         <li>span class="sr-only" Previous</li>
     </ul>
+    <h2>Bootstrap & jQuery</h2>
+    <ul>
+        <li>within HTML script tags</li>
+        <li>$: at beginning symbolizes using jQuery</li>
+        <li>function(): called ready method</li>
+        <ul>
+            <li>tells browser to load function code block when document is done loading</li>
+        </ul>
+        <li>$(function() {})</li>
+    </ul>
+    <h2>CSS Preprocessors</h2>
+    <ul>
+        <li>stylesheet based on CSS with additional features</li>
+        <li>easier to write and maintain large, complex stylesheets</li>
+        <li>write in preprocessor scripting language syntax then compile to regular CSS for deployment</li>
+    </ul>
+    <h3>Sass</h3>
+    <ul>
+        <li>Sass and SCSS have some syntax differences, but pretty much the same</li>
+        <a href="https://sass-lang.com/documentation">Sass Documentation</a>
+        <li>can use variables to reuse and change styles more easily</li>
+        <ul>
+            <li>$color-primary: #3046c5;</li>
+        </ul>
+        <li>use nesting to make code more readable</li>
+        <ul>
+            <li>instead of</li>
+            <li>header h2 {<br>style: ;<br>}</li>
+            <li>can use</li>
+            <li>header {<br>h2 { style: ;}<br>}</li>
+            <li>can more clearly see the relationship</li>
+            <li>can also nest multiple elements in the same one instead of writing multiple</li>
+        </ul>
+        <li>compiling SCSS to CSS</li>
+        <ul>
+            <li>use NPM to install sass compiler</li>
+            <li>add script to package.json file</li>
+            <ul>
+                <li>"scss": "node-sass -o css/ css/"</li>
+            </ul>
+            <li>can backup old css stylesheet since when compiled, will create new css stylesheet and replace old one</li>
+            <li>npm run scss</li>
+        </ul>
+    </ul>
+    <h2>Deploying</h2>
+    <ul>
+        <li>want to optimize site to make files as small as possible to decrease download time</li>
+        <li>deployment can be automated through NPM scripts</li>
+        <li>image compresson: make images smaller</li>
+        <li>minification: removes whitespace and comments to decrease file size</li>
+        <li>uglify (JS only): shortens variable names</li>
+        <li>can use GRUNT, GULP, or NPM scripts</li>
+    </ul>
+    <h3>Prepping for building (in NPM)</h3>
+    <ul>
+        <li>install NPM package onchange as a dev-dependency and parallelshell</li>
+        <ul>
+            <li>allows you to run lite server and scss at the same time</li>
+        </ul>
+        <li>install copyfiles to copy outside files (font awesome) to distribution folder</li>
+        <li>install imagemin-cli to compress images without losing quality</li>
+        <li>install usemin-cli to automatically install CSS minifier (clean-css), JS minifier and uglifier (uglify-js), and HTML minifier (html-minifier</li>
+        <ul>
+            <li>add comments around linked stylesheets in html so usemin can find them</li>
+            <li>also add comments to linked scripts</li>
+        </ul>
+        <li>install rimraf: automates dist folder cleanup</li>
+        <li>build distribution folder: script that strings together commands to run folder cleaning utility, run copyfonts script, and usemin script</li>
+    </ul>
 </body>
 </html>
