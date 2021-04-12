@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>React</h1>
+    <nav>
+        <ul>
+            <li><a href="#objects">Objects and JS Classes</a></li>
+            <li><a href="#array-methods">Advanced Array Methods</a></li>
+            <li><a href="#">_</a> </li>
+            <li><a href="#">_</a> </li>
+        </ul>
+    </nav>
+
+    <!-- objects and classes -->
+    <h2>Objects and JS Classes</h2>
+        <ul>
+        <li>Objects are 1 of the 8 JS data types</li>
+        </ul>
+        <h3>Objects</h3>
+            <ul>
+                <li>only data type that isn't a primitive</li>
+                <li>data structure for a collection of data</li>
+                <li>can have properties and methods (variables and functions that "belong" to that object"</li>
+                <li>const objectName = {<br>name1: "value1",<br>name2: "value2"<br>}</li>
+            </ul>
+            <h4>Object Methods</h4>
+                <ul>
+                    <li>can add custom methods to objects (unlike arrays which have predefined methods)</li>
+                    <ul>
+                        <li>const objectName = {<br>name1: "value1",<br>name2: "value2"<br>name3() {<br>console.log(`value3`)<br>}<br>}</li>
+                    </ul>
+                </ul>
+            <h4>Add and update object properties and methods</h4>
+                <ul>
+                    <li>add properties</li>
+                    <ul>
+                        <li>objectName.name3 = "value3"</li>
+                    </ul>
+                    <li>update properties</li>
+                    <ul>
+                        <li>objectName.name1 = "firstValue"</li>
+                    </ul>
+                    <li>add methods</li>
+                    <ul>
+                        <li>objectName.name4 = function() {<br>console.log(`value4`)<br>}</li>
+                    </ul>
+                    <li>update methods</li>
+                    <ul>
+                        <li>objectName.name3 = function() {<br>console.log(`thirdValue`)<br>}</li>
+                    </ul>
+                </ul>
+            <h4>Object Constants</h4>
+                <ul>
+                    <li>even if declare object variable with const keyword, properties and methods can be changed, but not the variable itself</li>
+                </ul>
+            <h4>Method parameters</h4>
+                <ul>
+                    <li>objectName.name3 = function(string) {<br>console.log(`insert ${string}`)<br>}</li>
+                    <li>objectName.name3(`Hello World`)</li>
+                    <li>will log: insert Hello World</li>
+                </ul>
+        <h3>This keyword</h3>
+            <ul>
+                <li>keyword refers to the object it belongs to to get different values</li>
+                <li>Example</li>
+                <ul>
+                    <li>const dragon1 = {<br>color: `red`,<br>roar() {<br>console.log(`big ${this.color} roar`)<br>}<br>}<br>logs big red roar</li>
+                </ul>
+            </ul>
+        <h3>JS Classes</h3>
+            <ul>
+            <li>templates for objects to create multiple instances of the same kind of object</li>
+            <li>must have class keyword</li>
+            <li>class name must start with capital letter</li>
+            <li>only 1 constructor for a class and can leave out if no default properties</li>
+            <li>Syntax</li>
+            <ul>
+                <li>class ClassName {<br>constructor(param1, param2) {<br>this.param1 = arg1<br>this.param2 = arg2<br>}<br>}</li>
+            </ul>
+            <li>Create object variables using JS classes</li>
+            <ul>
+                <li>const variable = new ClassName(arg1, arg2)</li>
+                <li>create object ClassName {param1: arg1, param2: arg2}</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>class Dragon {<br>constructor(color, maxHP) {<br>this.color = color<br>this.maxHP = maxHP<br>}<br>}</li>
+                <li>const dragon1 = new Dragon(`red`, 2000)</li>
+                <li>object dragon1 {color: `red`, maxHP: 2000)</li>
+            </ul>
+            </ul>
+            <h4>Class Methods</h4>
+                <ul>
+                <li>can use this keyword to refer to the properties of the object without having the object name</li>
+                </ul>
+        <h3>Class Inheritance</h3>
+            <ul>
+            <li>can create child classes based on parent classes</li>
+            <li>child class will inherit properties and methods of parent class but not vice versa</li>
+            <li>child class can add its own properties and methods without affecting the parent class</li>
+            <li>use extends keyword</li>
+            <li>Syntax</li>
+            <ul>
+                <li>use JS class to create parent class</li>
+                <li>then for child class use class ChildName extends ParentName {}</li>
+            </ul>
+            <li>Example</li>
+            <ul>
+                <li>create parent Monster class and child Dragon class -&gt; variables created with Dragon will have its own properties plus parent's, but variables created with Monster will only have its own properties</li>
+            </ul>
+            </ul>
+            <h4>Super method</h4>
+                <ul>
+                <li>putting super in child class lets you use properties from the parent class</li>
+                <li>usually need to have this.color or this.type, but can use super(color, type)</li>
+                </ul>
+        <h3>Default Function Parameters</h3>
+            <ul>
+            <li>if set parameters and don't provide arguments, JS will set to default undefined</li>
+            <li>Example</li>
+            <ul>
+                <li>function logSum(a = 0, b = 0) {<br>console.log(a + b)<br>}</li>
+                <li>logSum(2) will log 2 + 0 or 2</li>
+            </ul>
+            <li>can also set defaults for constructor parameters in JS classes</li>
+            <ul>
+                <li>constructor(color = `blue`, maxHP = `1000`)</li>
+            </ul>
+            </ul>
+    
+    <!-- advanced array methods -->
+    <h2 id="array-methods">Advanced Array Methods</h2>
+        <ul>
+        <li>possible to pass a function into another function as an argument</li>
+        <li>higher order function: function that takes another function as an argument or returns a function as a return value</li>
+        <ul>
+            <li>ex. map, filter, reduce</li>
+        </ul>
+        <li>callback function: function that's passed into a higher order function as an argument, then used/called back inside it</li>
+        <ul>
+            <li>usually in the form of an arrow function</li>
+        </ul>
+        <li>map, filter, and reduce</li>
+        <ul>
+            <li>take callback functions as arguments</li>
+            <li>none are mutator methods, but are all iteration methods</li>
+            <li>all have return values</li>
+            <ul>
+                <li>map and filter: return a new array</li>
+                <li>reduce: return a single value (not an array)</li>
+            </ul>
+        </ul>
+        </ul>
+        <h3>Map</h3>
+            <ul>
+            <li>iterates through an array and performs a given callback function on every item in the array</li>
+            <li>const array = [2, 4, 8, 45]<br>const arrayMap = array.map(n => n * 2)<br>arrayMap = [4, 8, 16, 90]</li>
+            <li>callback function has parameter n to stand for number (auto iterates from beginning to end of array)</li>
+            </ul>
+        <h3>Filter</h3>
+            <ul>
+            <li>takes a callback function that specifies a filtering condition, iterates through an array, and returns a new array with items considered true</li>
+            <li>const array = [2, 4, 8, 45]<br>const arrayFilter = array.filter(n => n &lt; 10)<br>arrayFilter = [2, 4, 8]</li>
+            </ul>
+        <h3>Reduce</h3>
+            <ul>
+            <li>takes an array and reduces it to a single value</li>
+            <li>const array = [2, 4, 8, 45]<br>const reducedValue = array.reduce((a, c) => a + b)<br>reducedValue = 59</li>
+            <li>a: accumulator (running total) &amp; c: current value (iterator)</li>
+            <li>can set parameter to be intial value of accumulator</li>
+            <ul>
+                <li>if don't set, accumulator will default be first item in array and current value the second</li>
+                <li>if working with array of objects, then need to set initial value</li>
+            </ul>
+            </ul>
+        <h3>Arrays of Objects</h3>
+            <ul>
+            <li>in array, define objects using object literals (part inside {}) without assigning each one to a variable name</li>
+            <li>const desserts = [<br>{<br>id: 0,<br>flavor: `chocolate`,<br>cost: 2.50<br>},<br>{<br>id: 1,<br>flavor: `vanilla`,<br>cost: 4.00<br>}<br>]</li>
+            <li>filter example</li> 
+            <ul>
+                <li>const filteredDessert = desserts.filter(dessert => dessert.flavor === `vanilla`)</li>
+                <li>filteredDessert = [{id: 1, cost: 4.00, flavor: `vanilla`}]</li>
+            </ul>
+            <li>reduce example</li>
+            <ul>
+                <li>const totalCost = desserts.reduce((total, dessert) => total + dessert.cost, 0)</li>
+                <li>totalCost = 6.50</li>
+                <li>need to have default value of 0 or else will use the entire object and not just the specific property (dessert.cost)</li>
+            </ul>
+            </ul>
+        <h3>Method Chaining</h3>
+            <ul>
+            <li>running multiple methods in a single statement through return values (return values required for chaining)</li>
+            <li>array method chaining</li>
+            <ul>
+                <li>const array = [2, 4, 8, 45]<br>const chainedArray = array.map(n => n * 2).filter(n => n &lt; 10)<br>chainedArray = [4, 8]</li>
+                <li>some built-in methods already have built-in return values</li>
+            </ul>
+            <li>object method chaining</li>
+            <ul>
+                <li>const dragon1 = {<br>roar() {<br>console.log(`dragon roar`),<br>return this<br>},<br>fly() {<br>console.log(`dragon fly`)<br>}<br>}<br>dragon1.roar().fly() logs dragon roar &amp; dragon fly</li>
+                <li>only works because roar() has return value of this</li>
+                <li>when writing own custom methods, must return value yourself</li>
+            </ul>
+            </ul>
+
+    <!-- intro to react -->
+    <h2>Intro to React</h2>
+        <ul>
+            <li>libraries: you call the library when you want to use it (ex. react, jquery)</li>
+            <li>frameworks: framework has control and calls your code when needed (ex. angular)</li>
+            <li>Defining features of React</li>
+            <ul>
+                <li>declarative approach over imperative approach</li>
+                <ul>
+                    <li>declarative: declare what you want to see, then React updates DOM</li>
+                    <li>imperative: manipulate the DOM directly yourself</li>
+                </ul>
+                <li>component-based approach: groups UI into components</li>
+                <li>plays well with other technologies: only focuses on the UI and lets you decide the rest of the application architecture</li>
+            </ul>
+        </ul>
+        <h3>Intro to JSX</h3>
+            <ul>
+                <li>syntactic extension to JS to help write front-end code faster</li>
+                <li>preprocessor language for JS (like Sass for CSS) that lets you write HTML in JS and it will be compiled into regular JS for the browser</li>
+                <li>instead of JS: document.createElement() or React: React.createElement()</li>
+                <li>can use React with JSX &lt;div&gt;Hello World!&lt;/div&gt;</li>
+                <li>differences</li>
+                <ul>
+                    <li>className instead of class &amp; htmlFor instead of for</li>
+                    <li>if element has no content, can write it as a self-closing tag</li>
+                    <ul>
+                        <li>ex. instead of &lt;i className="fa fa-phone"&gt;&lt;/i&gt; can use &lt;i className="fa fa-phone"&gt;</li>
+                    </ul>
+                    <li>can embed JS expressions using {}</li>
+                </ul>
+            </ul>
+        <h3>Initial Configuration</h3>
+            <ul>
+                <li>add Reactstrap (for React based Bootstrap components) and Bootstrap (jquery and popper)</li>
+                <li>in React components: syntax looks like HTML/JSX tags (&lt;&gt;) that start with capital letter are components (ex. Navbar) and lower case ones are JSX elements (ex. className)</li>
+            </ul>
+        <h3>JS import and export</h3>
+            <ul>
+                <li>import and export keywords let files share data with each other (data can be objects, primitives, and functions (including classes)</li>
+                <li>2 kinds of exports: named- can have many in a file, default- can only have 1</li>
+                <ul>
+                    <li>default: export default App; import App from './App';</li>
+                    <li>named: export { App }; import { App } from './App';</li>
+                </ul>
+                <li>JS module- file has at least 1 export</li>
+            </ul>
+    
+    <!-- React components -->
+    <h2>React Components</h2>
+        <ul>
+            <li>components: have &lt;/&gt; and start with capital letter</li>
+            <li>can think of components like functions (repeatable blocks of code that need to be defined then called) for components, we define then render</li>
+            <li>defining react components</li>
+            <ul>
+                <li>functional component:</li>
+                <li>class component: creating child class of parent Component (from React library)</li>
+                <ul>
+                    <li>class ComponentName extends Component {<br>render() {<br>return (<br>&lt;div&gt;<br>only 1 React element<br>&lt;/div&gt;<br>);<br>}<br>}</li>
+                </ul>
+            </ul>
+            <li>rendering components</li>
+            <ul>
+                <li>render like an HTML tag with first letter capitalized and typically, but not always, self-closing (custom components)</li>
+                <li>ex. &lt;Navbar&gt;&lt;/Navbar&gt; OR &lt;App /&gt;</li>
+            </ul>
+            <li>why use components?</li>
+            <ul>
+                <li>easily compose UI in modular way, like Bootstrap but can make own custom components or use 3rd party component libraries</li>
+            </ul>
+            <li>basic structure of class component</li>
+            <ul>
+                <img src="img/react-class-structure.png" alt="">
+                <li>if a class has local state, it must have a constructor</li>
+                <li>if a class has a constructor (optional), it must include props (short for properties) as an argument and use super(props) to inherit from parent class</li>
+                <li>components always return a single object (JSX element or another component)</li>
+            </ul>
+            <li>to render an array of elements most efficiently, add a unique key attribute to the topmost element in each array item</li>
+            <ul>
+                <li>key={this.id}</li>
+            </ul>
+            <li>lifting state up: put state higher up in component hierarchy so multiple components have access to the same read only data</li>
+        </ul>
+        <h3>State and Props</h3>
+            <ul>
+                <li>components can have 2 kinds of data</li>
+                <ul>
+                    <li>state data: stored locally within the component itself (can be changed)</li>
+                    <li>prop data: stored in a parent component and passed down (read-only)</li>
+                </ul>
+                <li>to pass data out of a component, include the data as a custom attribute (ex.number) when rendering the component in another component</li>
+                <li>state: class components can define a this.state object in constructor method to hold data for the component to use or pass down to child components as props</li>
+                <ul>
+                    <li>should never be assigned anywhere except in constructor, if elsewhere, use this.setState method to change</li>
+                </ul>
+                <li>props: objects in React used by components to receive data from parent components</li>
+                <li>can pass multiple props to render (ex.greeting)</li>
+                <img src="img/react-state-and-props.png" alt="">
+            </ul>
+    <h2>React Router</h2>
+        <h3>Object Destructuring</h3>
+            <ul>
+                <li>shortcut for accessing properties inside objects or items inside arrays then assigning them as values of new variables</li>
+            </ul>
+</body>
+</html>
