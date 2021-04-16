@@ -298,7 +298,8 @@
             <ul>
                 <li>key={this.id}</li>
             </ul>
-            <li>lifting state up: put state higher up in component hierarchy so multiple components have access to the same read only data</li>
+            <li>lifting state up: put state higher up in component hierarchy so multiple components have access to the same read only data (use prop from parent)</li>
+            <li>use React.fragment or empty &lt;&gt;&lt;/&gt; (not supported everywhere) instead of div when returning only 1 element to prevent an extra unnecessary DOM node</li>
         </ul>
         <h3>State and Props</h3>
             <ul>
@@ -341,12 +342,53 @@
             </ul>
         </ul>
     <h2>React Component Types</h2>
-        <h3>Presentational and Container Components</h3>
+        <ul>
+            <li>Presentational and Container Components</li>
+                <ul>
+                    <li>presentational: renders UI based on props passed to them (don't usually maintain their own state beyond some light UI state)</li>
+                    <li>container: fetches and manages state data to pass to presentational components for rendering</li>
+                </ul>
+        </ul>
+    <h2>React Router</h2>
+        <h3>React Virtual DOM</h3>
             <ul>
-                <li>presentational: renders UI based on props passed to them (don't usually maintain their own state beyond some light UI state)</li>
-                <li>container: fetches and manages state data to pass to presentational components for rendering</li>
+                <li>Browser DOM</li>
+                <ul>
+                    <li>the DOM is an API (application programming interface)- set of specifications for how programming languages and HTML interact with each other</li>
+                    <li>maps HTML elements to a node-based, tree-like representation that programming languages can understand, traverse, and modify</li>
+                    <li>when browser DOM is recreated, graphical view re-renders every time, so process can be "expensive"</li>
+                </ul>
+                <li>Virtual DOM</li>
+                <ul>
+                    <li>React is 1 implementation of the virtual DOM technique</li>
+                    <li>React maintains a lightweight representation of the browser DOM which is faster and easier to update plus doesn't re-render the graphical display</li>
+                    <li>DOM changes are first made in the virtual DOM</li>
+                    <li>reconciliation (engine: Fiber): finds differences between virtual and browser DOM then finds best way to change the browser DOM</li>
+                    <li>the reason why we use setState to change the state rather than changing it directly</li>
+                    <li>the reason we use key attributes on list elements: helps reconciliation process</li>
+                </ul>
             </ul>
-        <h3>Functional Components</h3>
-
+        <h3>React Router</h3>
+            <ul>
+                <li>can use React to built a Single Page App (SPA) which launches from a single HTML page instead of having multiple HTML pages</li>
+                <li>React Router- routing library that includes collection of router, route matching, and navigation components</li>
+                <ul>
+                    <li>handles routing requests to navigate to different views</li>
+                    <li>generates unique, bookmarkable URL for each view</li>
+                    <li>handles browser history (ability to move back and forward)</li>
+                </ul>
+                <li>react router components</li>
+                <ul>
+                    <li>&lt;BrowserRouter/&gt; top-level parent component that wraps around all other React-Router components (uses HTML5 history API to control browser history)</li>
+                    <li>&lt;Route/&gt; renders UI for a matching path (use the attribute exact to get an exact match</li>
+                    <li>&lt;Redirect/&gt; redirects to a new URL</li>
+                    <li>&lt;Switch/&gt; groups &lt;Route/&gt; components together</li>
+                    <ul>
+                        <li>works like switch from JS, will look through each case (route path) and if there is no match, then go to default (redirect)</li>
+                    </ul>
+                    <li>&lt;Link/&gt; creates links to a path (use instead of &lt;a&gt;)</li>
+                    <li>&lt;Navlink/&gt; version of &lt;Link/&gt; that adds styles to active link</li>
+                </ul>
+            </ul>
 </body>
 </html>
