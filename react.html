@@ -381,6 +381,10 @@
                 <ul>
                     <li>&lt;BrowserRouter/&gt; top-level parent component that wraps around all other React-Router components (uses HTML5 history API to control browser history)</li>
                     <li>&lt;Route/&gt; renders UI for a matching path (use the attribute exact to get an exact match</li>
+                    <ul>
+                        <li>If just routing to component without passing state datea, use component={}</li>
+                        <li>if need to pass state data as props to the component you're routing to, use render={}</li>
+                    </ul>
                     <li>&lt;Redirect/&gt; redirects to a new URL</li>
                     <li>&lt;Switch/&gt; groups &lt;Route/&gt; components together</li>
                     <ul>
@@ -390,5 +394,80 @@
                     <li>&lt;Navlink/&gt; version of &lt;Link/&gt; that adds styles to active link</li>
                 </ul>
             </ul>
+        <h2>Single Page Application (SPA)</h2>
+            <ul>
+                <li>multi-page website: code is re-rendered and new server request every time you go to a new page</li>
+                <li>SPA: front-end code is locally downloaded, when switching views app re-renders only changes and makes minimal server requests (ex. database data)</li>
+                <ul>
+                    <li>PROS: faster because less server requests, streamlined development, can reuse back end code for mobile app, easy to debug in browser</li>
+                    <li>CONS: search engines can have trouble indexing, dependent on JS being enabled in browser, intial download can be slow, does not use traditional browser navigation (need React Router)</li>
+                </ul>
+            </ul>
+        <h2>JS ES6 Computed Property Names, Spread Syntax, and Ternary Operator</h2>
+            <ul>
+                <li>computed property names: can pass in variables to use as property names when initializing an object (can create objects dynamically)</li>
+                <li>example</li>
+                <pre>
+                    const myProperty = `foo`
+                    const myObject = {
+                        [myProperty] = `test`
+                    }
+                    myObject = {foo: `test`}
+                </pre>
+            </ul>
+            <ul>
+                <li>spread syntax: use to pull out/spread a copy of what is inside an array or object (can be used to create a new array or object)</li>
+                <li>combining 2 arrays</li>
+                <pre>
+                    const arr1 = [`red`, 1];
+                    const arr2 = [`blue`, 3];
+                    const arr1and2 = [...arr1, ...arr2];
+                    arr1and2 = [`red`, 1, `blue`, 3]
+                </pre>
+                <li>combining string to array</li>
+                <pre>
+                    const arr3 = [...arr1, `purple`];
+                    arr3 = [`red`, 1, `purple`];
+                </pre>
+                <li>combining 2 objects (order it is combined matters)</li>
+                <pre>
+                    const obj1 = { color: `red`, width: 1 };
+                    const obj2 = { color: `blue`, height: 3 };
+                    const obj1and2 = { ...obj1, ...obj2 };
+                    obj1and2 = { color: `blue`, width: 1, height: 3 }
+                </pre>
+            </ul>
+            <ul>
+                <li>ternary operator: shortcut for <code>if statement</code></li>
+                <li><code>condition ? expression if truthy : expression if falsy</code></li>
+                <pre>
+                    function canVote(age) {
+                        if (age >= 18) {
+                            console.log(`can vote`)
+                        } else {
+                            console.log(`can not vote`)
+                        }
+                    }
+                </pre>
+                <pre>
+                    function canVote(age)
+                        age >= 18 ? console.log(`can vote`) : console.log(`can not vote`)
+                </pre>
+            </ul>
+        <h2>React Forms</h2>
+            <h3>Controlled Forms</h3>
+                <ul>
+                    <li>HTML form values directly tied to the state of its React component</li>
+                    <li>single source of truth: React controls the form state to prevent conflicts</li>
+                    <li>any changes to form fields immediately reflected in component's state and can be responded to with JS (ex. form validation and error messages)</li>
+                    <li>require a lot of initial setup</li>
+                </ul>
+            <h3>Uncontrolled Forms</h3>
+                <ul>
+                    <li>HTML form states are tracked by the DOM and React retrieves data as needed</li>
+                    <li>single source of truth: form elements within the DOM</li>
+                    <li>alternative to controlled forms with quicker setup and easier if integrating React code with non-React code</li>
+                    <li>use <code>ref</code>s to retrieve data or in Reactstrap- <code>innerRef</code></li>
+                </ul>
 </body>
 </html>
