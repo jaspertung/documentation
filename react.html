@@ -469,5 +469,71 @@
                     <li>alternative to controlled forms with quicker setup and easier if integrating React code with non-React code</li>
                     <li>use <code>ref</code>s to retrieve data or in Reactstrap- <code>innerRef</code></li>
                 </ul>
+        <h2>React Design Patterns</h2>
+            <h3>MVC Design Pattern</h3>
+                <ul>
+                    <li>software design pattern to structure applications and develop presentation layer/client-side</li>
+                    <li>separation of concerns: facilitates independent development, testing, maintenance of different parts of an app</li>
+                    <li>3 parts: model, view, controller</li>
+                    <ul>
+                        <li>model: handle application state and logic</li>
+                        <ul>
+                            <li>code that retrieves data from database, stores it in application state, and updates it</li>
+                            <li>responds to queries about state (from view/controller) and responds to requests to update state (from controller)</li>
+                            <li>also notifies view and controller when state changes</li>
+                        </ul>
+                        <li>view: present info to user</li>
+                        <ul>
+                            <li>renders model into display (ex. UI element)</li>
+                            <li>queries model directly about state and updates itself based on changes</li>
+                        </ul>
+                        <li>controler: mediate between model and view</li>
+                        <ul>
+                            <li>receive and process info from the view (ex. events, submissions)</li>
+                            <li>instruct model and view to update</li>
+                        </ul>
+                    </ul>
+                </ul>
+            <h3>Flux</h3>
+                <ul>
+                    <li>MVC didn't scale well for large apps because of bi-directional data flow</li>
+                    <li>Flux similar to MVC but unidirectional data flow</li>
+                    <li>4 parts: action, dispatched, store, view</li>
+                    <ul>
+                        <li>action: when an action enters the system, it goes to the dispatcher</li>
+                        <li>dispatcher: only 1 that acts as traffic controller and routes actions to stores</li>
+                        <ul>
+                            <li>makes sure that actions are processed one at a time to prevent cascading effects</li>
+                        </ul>
+                        <li>store: multiple that are registered with dispatcher and holds application state and logic</li>
+                        <li>view: updates when stores are changed</li>
+                        <ul>
+                            <li>when another action enters the system from the view (ex. user interaction), sent to dispatcher</li>
+                        </ul>
+                    </ul>
+                </ul>
+            <h3>Redux</h3>
+                <ul>
+                    <li>Flux by itself is an architecture/design pattern with no actual code, but a JS library that implements code written with the Flux pattern is Redux</li>
+                    <li>Redux: provides code that stores application state and a consistent way to access and update that state from anywhere in the app</li>
+                    <li>fundamental principles: single source of truth, state is read-only, changes are made with pure functions</li>
+                    <ul>
+                        <li>single source of truth: only 1 store which holds a single state object tree (data structure with each node containing an object (like DOM)) that contains the whole state of the entire application as objects within that tree</li>
+                        <li>state is read-only: only way to change state is with an action (an object that describes what happened)</li>
+                        <li>changes are made with pure functions: pure functions (aka reducers) have no side effects and given the same inputs, will always return the same outputs (ex. Math.floor() is a pure function, Math.random() is an impure function)</li>
+                        <ul>
+                            <li>reducer: pure function that takes the previous state and an action and returns the next state (like .map, returns new state object without mutating previous state)</li>
+                            <li>new objects are "cheap" to make and allows time travel (ability to step back and forth from previous state (ex. like flipbook))</li>
+                        </ul>
+                        <li>4 parts: action, reducer, store, view</li>
+                    </ul>
+                </ul>
+                <h4>React-Redux library</h4>
+                    <ul>
+                        <li><code>createStore()</code>: creates Redux store which holds the state as an object tree</li>
+                        <li><code>connect()</code>: generates container component that wraps around other components to subscribe them to the store</li>
+                        <li><code>mapStateToProps()</code>: passed as callback to <code>connect()</code> function, called whenever state changes, receives entire state tree, and returns object containing only the data needed by the component</li>
+                        <li><code>&lt;Provider&gt;</code>: wraps around root component of the app (App), takes store variable as attribute, makes store accessible to all child components that are connected using <code>connect()</code> function</li>
+                    </ul>
 </body>
 </html>
