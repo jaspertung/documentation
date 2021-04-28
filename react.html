@@ -535,5 +535,72 @@
                         <li><code>mapStateToProps()</code>: passed as callback to <code>connect()</code> function, called whenever state changes, receives entire state tree, and returns object containing only the data needed by the component</li>
                         <li><code>&lt;Provider&gt;</code>: wraps around root component of the app (App), takes store variable as attribute, makes store accessible to all child components that are connected using <code>connect()</code> function</li>
                     </ul>
+    <h2>Redux Actions and Reducers</h2>
+        <ul>
+            <li>Actions</li>
+            <ul>
+                <li>JS objects that contain info updates sent to Redux store</li>
+                <li>only required property: <code>type</code> (will be a unique string)</li>
+                <li>best practice: gather all action types into a separate module (easily see all the action types)</li>
+            </ul>
+            <li>Dispatching an action</li>
+            <ul>
+                <li>1) action &#8594; 2) create action type &#8594; 3) create action creator &#8594; 4) connect action to React component</li>
+                <li>components dispatch an action in response to user interaction (ex. loading new view, clicking a button)</li>
+                <li>action type defined as a string constant (<code>ActionTypes.ADD_CAMPSITES</code>)</li>
+                <li>action creator: function that returns the action object and has a <code>type</code> property plus any data (payload) to send to store to update (ex. const addCampsites)</li>
+                <li>then connect each action to a React component using <code>connect()</code> function and <code>mapDispatchToProps</code></li>
+                <pre>
+                export const addCampsites = campsites => ({
+                    type: ActionTypes.ADD_CAMPSITES,
+                    payload: campsites
+                })
+                </pre>
+            </ul>
+            <li>Reducers</li>
+            <ul>
+                <li>5) Redux store checks all reducers for matching action type &#8594; 6) run code for that action type &#8594; 7) update the state</li>
+                <pre>
+                export const Campsites = (states = {campsites: []}, action) => {
+                    switch (action.type) {
+                        case ActionTypes.ADD_CAMPSITES:
+                            return {...state, campsites: action.payload}
+                        default:
+                            return state
+                    }
+                }
+                </pre>
+                <li>takes in state as 1st argument (if state doesn't exist yet, then default campsites object with empty array) and action object that was dispatched as 2nd argument</li>
+                <li>if any of the action.types match the switch statement, then will use spread syntax to update state with new payload from action then return new state object to the store</li>
+                <li>if no action.types match, default return original state</li>
+            </ul>
+            <li>Splitting the reducer</li>
+            <ul>
+                <li>can have multiple reducers in separate files, but Redux store only takes 1 reducer as an argument so can use <code>combineReducer</code> to create root reducer to use with <code>createStore()</code></li>
+            </ul>
+        </ul>
+        <h2>Redux Middleware</h2>
+            <ul>
+                <li>intercepts an action after it is dispatched and before it reaches reducer to change it or cause a side effect other than updating the state (ex. logging, waiting for server response)</li>
+                <ul>
+                    <li>ex. third party extension library Redux logger, shows every single action that is dispatched in console with its previous, current action, and next state with new action</li>
+                </ul>
+                <li>synchronous vs asynchronous</li>
+                <ul>
+                    <li>synchronous code: everything happens in order and app waits until a piece of code is finished processing before continuing</li>
+                    <li>asynchronous code: start processing, then continue with app without waiting for it to finish, and deal with results later</li>
+                    <ul>
+                        <li>common use: client requests data from server (need to wait for response before using the data)</li>
+                    </ul>
+                </ul>
+                <li>use middleware to wrap around dispatch and insert operations before action reaches reducer (ex. making async calls, crash reporting, stopping an action, dispatching other actions)</li>
+                <li>can chain middleware to have multiple libraries used in sequence</li>
+                <li><code>applyMiddleware()</code> function passed as a parameter to <code>createStore()</code></li>
+            </ul>
+            <h3>Redux Thunk</h3>
+                <ul>
+                    <li>thunk: programming technique that wraps a function inside another function to delay its execution or dispatch only if a certain condition is met</li>
+                    <li>Redux Thunk: uses thunk to inject extra operations into an action creator which normally returns an action object to instead return a function</li>
+                </ul>
 </body>
 </html>
