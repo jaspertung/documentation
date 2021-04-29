@@ -602,5 +602,95 @@
                     <li>thunk: programming technique that wraps a function inside another function to delay its execution or dispatch only if a certain condition is met</li>
                     <li>Redux Thunk: uses thunk to inject extra operations into an action creator which normally returns an action object to instead return a function</li>
                 </ul>
+        <h2>Client-Server Communication</h2>
+            <h3>Networking between web browsers and web servers</h3>
+                    <li>communication between front end & back end</li>
+                    <ul>
+                        <li>back end of apps usually hosted on servers of cloud platforms (AWS, Heroku, DigitalOcean, Microsoft Azure)</li>
+                        <li>when an app in the browser wants to communicate with any server, there may be delays or errors that need to be handled by front-end to let user know what is happening</li>
+                    </ul>
+                    <li>Network protocols</li>
+                    <ul>
+                        <li>set of rules for how 2 networked systems talk to each other</li>
+                        <li>ex of rules: type of data exchanged, how data is formatted, how systems respond to certain request types, etc</li>
+                        <li>lots of network protocols that work at different network layers (from physical to application layer)</li>
+                    </ul>
+                    <li>HTTP (HyperText Transfer Protocol</li>
+                    <ul>
+                        <li>application layer protocol that is the foundation of data communication on the web</li>
+                        <li>browser sends HTTP request to server</li>
+                        <ul>
+                            <li>always supplies HTTP method (aka action aka verb) (ex. GET/PUT/POST/DELETE)</li>
+                            <li>HTTP protocol version (usually 1.1)</li>
+                            <li>URL (uniform resource locator)</li>
+                            <li>header (optional)</li>
+                            <li>body (if there is one- usually none in GET request, but one in POST)</li>
+                        </ul>
+                        <li>server sends back HTTP response</li>
+                        <ul>
+                            <li>HTTP status code range from 1-500 (ex. 200, 302, 404)</li>
+                            <li>HTTP protocol version (usually 1.1), header (optional), body (if there is one- usually none in GET request, but one in POST)</li>
+                        </ul>
+                    </ul>
+                    <li>Transferring data: JSON vs XML</li>
+                    <ul>
+                        <li>2 common ways to format text data files</li>
+                        <li>JSON: Javascript Object Notation</li>
+                        <ul>
+                            <li>syntax is similar to JS object, easy to convert JSON to and from JS objects so use this file format to encode data for transferring over networks to let JS apps and databases easily parse</li>
+                            <li>typically used with RESTful web services</li>
+                        </ul>
+                        <li>XML: eXtensible Markup Language</li>
+                        <ul>
+                            <li>syntax is similar to HTML, like JSON used to store and transfer text data</li>
+                            <li>typically used with protocal called SOAP</li>
+                        </ul>
+                    </ul>
+                </ul>
+            <h3>REST</h3>
+                <ul>
+                    <li>REST (representational state transfer): software architetural style that defines a set of constraints for creating web services</li>
+                    <li>web services: resources available over the web (2 types: SOAP & RESTful)</li>
+                    <li>SOAP (simple object access protocol): protocol with strictly defined rules
+                        <ul>
+                            <li>uses WSDL (web services description language) to specify how 2 endpoints in a network communicate with each other</li>
+                            <li>depends on XML for messaging format</li>
+                        </ul>
+                    <li>REST: approach with no exact specifications</li>
+                    <ul>
+                        <li>can use XML, HTML, plain text, or JSON for messaging format</li>
+                        <li>6 defining constraints of REST</li>
+                        <ol>
+                            <li>client-server separation: client and server can be implemented separately as long as the interface stays consistent (dividing UI and data storage concerns improves flexibility and scalability)</li>
+                            <li>statelessness: server doesn't store info about client's state after communication is completed (client responsible for tracking its own state)</li>
+                            <li>uniform interface: resources exposed to server must have a single URI (uniform resource identifier), done with directory-like style (ex. react-router)</li>
+                            <li>cacheable: clients can cache responses & server responses contain info on how to cache and if they should be cached</li>
+                            <li>layered system: layers between client and server (maybe intermediary server that caches data being requested)</li>
+                            <li>code on demand: (optional) servers can temporarily extend functionality of client-side code by transferring executable code (ex. JS)</li>
+                        </ol>
+                        <li>9 HTTP methods- first 4 analogous to CRUD (Create/Read/Update/Delete)</li>
+                        <ol>
+                            <li>POST: create new resource on the server</li>
+                            <li>GET: request a resource from the server</li>
+                            <li>PUT: update a resource on the server</li>
+                            <li>DELETE: delete a resource on the server</li>
+                            <li>HEAD</li>
+                            <li>CONNECT</li>
+                            <li>OPTIONS</li>
+                            <li>TRACE</li>
+                            <li>CATCH</li>
+                        </ol>
+                        <li>all 4 but POST are idempotent: when an operation can be repeated multiple times and doesn't change its operand more than once (if at all) (ex. multiplying by 0)</li>
+                        <ul>
+                            <li>each POST request will be different, but GET, PUT, and DELETE will be the same after repetitions</li>
+                        </ul>
+                        <li>resource on server: any data that can be requested by a client (ex. name from database, stock price, weather report, image, HTML file)</li>
+                        <ul>
+                            <li>resources available at uniqure URIs and client and request each resource specifically by its URI</li>
+                            <li>client and server don't send resources to each other, but representations of resources (usually as JSON or XML) which is then converted to resources (Representational State Transfer)</li>
+                            <li>server responds to GET request for resource by sending a representaiton of the resource</li>
+                            <li>OR client sends POST or PUT request by sending representation in request body, and server creates a resource from it</li>
+                        </ul>
+                    </ul>
 </body>
 </html>
