@@ -603,6 +603,7 @@
                     <li>Redux Thunk: uses thunk to inject extra operations into an action creator which normally returns an action object to instead return a function</li>
                 </ul>
         <h2>Client-Server Communication</h2>
+        <span>start json-server: json-server -H 0.0.0.0 --watch db.json -p 3001 -d 2000</span>
             <h3>Networking between web browsers and web servers</h3>
                     <li>communication between front end & back end</li>
                     <ul>
@@ -692,5 +693,90 @@
                             <li>OR client sends POST or PUT request by sending representation in request body, and server creates a resource from it</li>
                         </ul>
                     </ul>
+                </ul>
+        <h2>Fetch</h2>
+            <h3>JS Promises</h3>
+            <ul>
+                <li>special kind of object that acts as a proxy for a value that isn't available at the moment the promise is created</li>
+                <li>3 states of promise</li>
+                <ul>
+                    <li>pending: sent promise, but hasn't been delivered</li>
+                    <li>fulfilled: promise has been delivered</li>
+                    <li>rejected: promise failed for some reason</li>
+                </ul>
+                <pre>
+                const somePromise = new Promise((resolve, reject) => {
+                    async code to run
+                    call resolve function if successful OR reject function if failed
+                })
+                </pre>
+                <li>resolve callback function passing in value that was promised</li>
+                <li>reject callback function passing in error object</li>
+                <li>Consuming a promise</li>
+                <ul>
+                    <li><code>.then()</code></li>
+                    <li><code>.catch()</code></li>
+                    <li><code>.finally()</code></li>
+                </ul>
+                <pre>
+                somePromise.then(
+                    response =>
+                        /*handle response returned from promise's resolve function*/
+                    error =>
+                        /*handle error returned from reject function*/
+                )
+                </pre>
+                <li>chain <code>catch</code> method after <code>then</code> method: deals with error if didn't provide 2nd method to <code>then</code> method</li>
+                <pre>
+                somePromise
+                    .then(response =>
+                        /*handle response returned from promise's resolve function*/)
+                    .catch(error =>
+                        /*handle error returned from reject function*/)
+                </pre>
+                <li>method chaining for multiple promises (promise chain)</li>
+                <pre>
+                somePromise
+                    .then(response => code)
+                    .then(response => code)
+                    .catch(error => code)
+                </pre>
+            </ul>
+            <h3>Fetch API</h3>
+                <ul>
+                    <li>web APIs: provides code constructs (ex. objects, methods, etc) that aren't technically part of JS, but built into browsers by default so can use in client-side JS (ex. document.getElementByID is part of Document web API)</li>
+                    <li>before used XMLHttpRequest API, but replaced with Fetch (more powerful and flexible) or alternative libraries that use XMLHttpRequest as the base but wrapped with more powerful code (Axios and Superagent)</li>
+                    <li>Fetch <code>Request</code> object: .headers, .mehod, .status, .credentials, .body, etc</li>
+                    <li>Fetch <code>Response</code> object: .headers, .ok, .status, type, .body, etc</li>
+                </ul>
+        <h2>React Animations</h2>
+            <ul>
+                <li>react-transition-group: provides set of components that can recognize when other components are being mounted/unmounted and apply transition effects</li>
+                <ul>
+                    <li>&lt;<code>Transition</code>&gt;</li>
+                    <li>&lt;<code>CSSTransition</code>&gt;: can apply any CSS class at different stages of a component's transition</li>
+                    <li>&lt;<code>SwitchTransition</code>&gt;</li>
+                    <li>&lt;<code>TransitionGroup</code>&gt;: wrapper component that helps manage the state of a group of components with transition effects applied</li>
+                </ul>
+                <li>react-animation-components: provides drop-in, GPU-accelerated animation components</li>
+                <ul>
+                    <li>Animation components</li>
+                    <li>&lt;<code>Fade</code>&gt;: fade effect</li>
+                    <li>&lt;<code>Transform</code>&gt;</li>
+                    <li>&lt;<code>FadeTransform</code>&gt;: fade and transform combined in 1 component</li>
+                    <li>Wrapper components</li>
+                    <li>&lt;<code>Stagger</code>&gt;: stagger a delay on set of components</li>
+                    <li>&lt;<code>Random</code>&gt;</li>
+                    <li>&lt;<code>loop</code>&gt;</li>
+                </ul>
+            </ul>
+        <h2>Building and Deployment</h2>
+            <ul>
+                <li>create-react-app comes with utility that can build project's distribution files- Webpack</li>
+                <li>webpack: looks at structure of application and finds most efficient way to bundle modules</li>
+                <li>only works with JS and JSON files but use "loaders" to transform other assets (HTML, CSS, media, etc) to be treated as JS modules</li>
+                <li>concatenation, minification, uglification, compression of file and optimized bundle to transfer from server to client using chunk loading, prefetching, etc</li>
+                <li>purpose: optimize project's: performance and load time</li>
+            </ul>
 </body>
 </html>
