@@ -36,5 +36,33 @@
                 </ul>
             </ol>
         </ul>
+    <h2>JavaScript Concepts</h2>
+        <h3>First-Class Functions: when a programming language supports treating functions like a variable (ex. functions can be assigned to variables, passed as args to other functions, used as return value of another function, etc)</h3>
+        <h3>Higher-Order Functions: function that takes another function as an argument or returns a function as its return value</h3>
+        <h3>Callback Functions: function that is passed to another function as an argument</h3>
+            <ul>
+                <li>commonly used for asynchronous code</li>
+                <li>callback passed into a function as an argument and waits for async operation (ex. setTimeout or fetch data) to finish before callback is executed</li>
+            </ul>
+        <h3>Closures: when a function is defined inside another function, the inner function automatically has access to variables from the outer function</h3>
+            <ul>
+                <li>const outerFn = () => {<br>const x = 5<br> const innerFn = () => console.log(x)<br>innerFn()<br>}<br>outerFn() returns 5</li>
+                <li>const outerFn = () => {<br>const x = 5<br> const innerFn = () => console.log(x)<br>return innerFn()<br>}<br>const closureTest = outerFn()<br>closureTest returns () => console.log(x)<br>closureTest() returns 5<br>console.dir(closureTest) returns more information about innerFn</li>
+            </ul>
+        <h3>Callbacks and async computation</h3>
+            <h4>The Node Event Loop</h4>
+                <ul>
+                    <li>JS and Node are single-threaded event loop rather than multi-threaded (multiple parallel operations can run in background)</li>
+                    <li>Node event loop gets incoming sequence of requests and will offload I/O (input/output) requests to system kernal (central program of operating system)</li>
+                    <li>then system kernel will let Node know to queue associated callbacks and then execute them via event loop</li>
+                    <li>basically delegates work out then finishes when the completed work is returned</li>
+                    <ol>6 phases of node event loop:</ol> 
+                        <li>timer phase: event loop executes callbacks scheduled by setTimeout() or setInterval() functions</li>
+                        <li>pending callbacks phase: deals with certain system-level error callbacks (not used)</li>
+                        <li>idle/prepare phase: used internally by Node (not used)</li>
+                        <li>poll phase: processes a queue of callbacks, once queue is empty, waits to handle any new requests or timers</li>
+                        <li>check phase: handles callbacks from setImmediate() timer function when queue in poll phase is empty</li>
+                        <li>close callbacks phase: handles emitting the 'close' event if a socket or handle is closed abruptly (not used)</li>
+                </ul>
 </body>
 </html>
