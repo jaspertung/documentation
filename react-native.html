@@ -42,5 +42,121 @@
                 </ul>
             </ol>
         </ul>
+    <h2>Intro to React Native</h2>
+        <ul>
+            <li>Usually runs JS code on JavaScriptCore engine for Android and iOS, then when Chrome debugging- runs on V8 engine</li>
+            <li>React Native Bridge- handles communication between JS side and native side</li>
+            <li>Expo- Expo SDK (software development kit), expo CLI (scaffold development environment), Snack, and other tools to develop React Native apps</li>
+        </ul>
+    <h2>Setting up React Native environment</h2>
+        <ul>
+            <li>make sure node and nvm are installed</li>
+            <li>npm install --global expo-cli</li>
+            <li>in folder: expo init nucampsite --name NuCamp -t blank --yarn</li>
+            <li>expo start</li>
+            <li>open Android Studio and start AVD Manager for virtual device</li>
+            <li>"Run on Android device/emulator" in Expo developer tools</li>
+            <li>React Native elements library: expo install react-native-elements@2.2.1</li>
+            <li>React Navigation: expo install react-navigation@4</li>
+            <li>suplementary packages for React Navigation: expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view react-navigation-stack@^1.10.3</li>
+            <li>Drawer Navigator: expo install react-navigation-drawer</li>
+            <li>json-server: yarn global add json-server</li>
+            <li>json-server -H 0.0.0.0 --watch db.json -p 3001 -d 2000</li>
+        </ul>
+    <h2>React Native App Structure</h2>
+        <ul>
+            <li>AppEntry.js inside node_modules is where App is configured to be the Root Component aka the entry point of the entire application</li>
+            <li>App.js is main page</li>
+            <li>no longer using HTML and CSS (because not in browser), now use components for all UI</li>
+            <li>built-in components that React Native maps into corresponding native UI components for Android and iOS</li>
+            <li>use <code>&lt;View&gt;</code> as div equivalent and <code>&lt;Text&gt;</code> as p equivalent</li>
+            <li>StyleSheet api and can also make inline styles</li>
+            <pre>
+                &lt;View style={styles.container}&gt;&lt;/View&gt;
+                const styles = StyleSheet.create({
+                    container: {
+                        backgroundColor: "#fff"
+                    },
+                })
+            </pre>
+        </ul>
+    <h2>React Native Components</h2>
+        <ul>
+            <li>third-party React Native libraries with components and tools (React Native Elements)</li>
+        </ul>
+    <h2>Navigation in React Native</h2>
+        <ul>
+            <li>React Navigation: third party library that presents stack and tabbed navigation)</li>
+            <li>keep track of views via internal stack to go forward and backward between pages</li>
+            <li>drawer navigation- swipe left to show navigation menu</li>
+        </ul>
+    <h2>Adding new feature to redux store</h2>
+        <ul>
+            <li>Add new action type</li>
+            <li>create new action creator</li>
+            <li>add new switch statement</li>
+            <li>add component</li>
+        </ul>
+    <h2>Expo SDK</h2>
+        <ul>
+            <li>Expo: set of tools and services built around React Native to help develop, build, deploy, and quickly iterate apps/web apps from the same JS codebase</li>
+            <li>Expo development tools: Client, Expo CLI, Snack, SDK</li>
+            <li>Expo SDK: provides access to device and system functionality (ex. contacts, camera, GPS)</li>
+        </ul>
+        <h3>Secure Store</h3>
+            <ul>
+                <li>types of storage for mobile device: localStorage, AsyncStorage, Expo Secure Store, etc</li>
+                <li>to store small amounts of encrypted key-value storage, use Expo Secure Store API</li>
+                <li>3 methods: (all have required arg of key and optional arg of options)</li>
+                <ol>
+                    <li>SecureStore.setItemAsync(key, value, options): returns promise that rejects if value can't be stored on device</li>
+                    <li>SecureStore.getItemAsync(key, options): returns promise that resolves to stored value, or resolve to null if no entry for given key, or reject if error occurs</li>
+                    <li>SecureStore.deleteItemAsync(key, options): returns promise that rejects if value can't be deleted</li>
+                </ol>
+            </ul>
+    <h2>Local Notifications</h2>
+        <ul>
+            <li>local notificaitons (generated from client side) vs push/remote notifications (generated from server side)</li>
+            <li>Expo Notifications API- access to push and local notifications, send notifications immediately or at a scheduled time (once or recurring)</li>
+            <ul>
+                <li>Notifications.seNotificationHandler()- sets notification when received and app is in foreground (default: doesn't show)</li>
+                <li>Notifications.scheduleLocalNotificationAsync()- schedules local notification</li>
+            </ul>
+            <li>need to request permission to generate notifications from underlying operating system</li>
+            <ul>
+                <li>Notifications.getPermissionsAsync()</li>
+                <li>Notifications.requestPermissionsAsync()</li>
+            </ul>
+        </ul>
+    <h2>Social Sharing</h2>
+        <ul>
+            <li>email, text, social media</li>
+            <li>2 examples: Expo SDK's MailComposer API to send emails & React Native Share API to share to various apps</li>
+            <ul>
+                <li>MailComposer API: MailComposer.composeAsync(options)</li>
+                <ul>
+                    <li>options: required argument that can take (array of recipients, strings of subject and body, boolean of whether body contains HTML, array of file attachments)</li>
+                    <li>returns promise with status property of sent, saved, or cancelled for iOS and sent for Android (doesn't return info)</li>
+                </ul>
+                <li>Share API: Share.share(content, options)</li>
+                <ul>
+                    <li>content: message or url or both, plus optional title & options: misc config properties</li>
+                </ul>
+            </ul>
+        </ul>
+    <h2>Picking an Image</h2>
+        <ul>
+            <li>Expo ImagePicker API- provides access to system UI to select image/video from device or take new photo/video</li>
+            <ul>
+                <li>ImagePicker.launchImageLibraryAsync(options): resolved promise (if photo taken with object with media uri, width/height, media type, etc) OR cancelled property set to true (no photo taken)/li>
+                <li>ImagePicker.launchCameraAsync(options)</li>
+                <li>options prop: mediaTypes (default: images), allowsEditing (default: false), aspect (aspect ratio), quality (quality of image compression), etc</li>
+            </ul>
+            <li>Expo ImageManipulator API- alter image, apply transformations, configure compression level/format, if include image data in Base64 format</li>
+            <li>Expo Camera API- provides React component to render a preview for device's front or back camera, can adjust zoom, autofocus, white balance, flash, take photo or start/stop recording, detect faces, scan a barcode</li>
+            <ul>
+                <li>more sophistcated than ImagePicker.launchCameraAsync(options)</li>
+            </ul>
+        </ul>
 </body>
 </html>

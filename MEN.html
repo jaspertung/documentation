@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS, Express, and MongoDB</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>NodeJS, Express, and MongoDB</h1>
+    <nav>
+        <ul>
+            <li><a href="#objects"></a></li>
+            <li><a href="#array-methods"></a></li>
+            <li><a href="#">_</a> </li>
+            <li><a href="#">_</a> </li>
+        </ul>
+    </nav>
+    <h2>Node Modules</h2>
+        <ul>
+            <li>Other programming languages (C, C++, Java, etc) designed with libraries to access underlying hardware and structure to take code from multiple files and combine together into a single application</li>
+            <li>JS originally designed for browser scripts, but not used for full-fledged apps (in and out of browser)</li>
+            <ul>
+                <li>CommonJS created to define module format for JS apps --> foundation of Node and NPM</li>
+            </ul>
+            <li>3 node modules categories</li>
+            <ol>
+                <li>External, 3rd party modules: installed using NPM to node_modules folder</li>
+                <li>Node core modules: built into Node (don't need to be installed) and include path, fs (filesystem), OS, util, etc</li>
+                <li>File-based modules within our app: make JS file within app into module by exporting code from it (module.exports/require)</li>
+                <ul>
+                    <li>example.js: exports.double = x => x * 2</li>
+                    <li>test.js: const exampleModule = require('./example.js')<br>console.log(examplemodule.double(3))</li>
+                </ul>
+            </ol>
+        </ul>
+</body>
+</html>
