@@ -36,33 +36,98 @@
                 </ul>
             </ol>
         </ul>
-    <h2>JavaScript Concepts</h2>
-        <h3>First-Class Functions: when a programming language supports treating functions like a variable (ex. functions can be assigned to variables, passed as args to other functions, used as return value of another function, etc)</h3>
-        <h3>Higher-Order Functions: function that takes another function as an argument or returns a function as its return value</h3>
-        <h3>Callback Functions: function that is passed to another function as an argument</h3>
+    <h3>Callbacks, Closures, and the Node Event Loop</h3>
+        <h4>Callbacks</h4>
             <ul>
-                <li>commonly used for asynchronous code</li>
-                <li>callback passed into a function as an argument and waits for async operation (ex. setTimeout or fetch data) to finish before callback is executed</li>
-            </ul>
-        <h3>Closures: when a function is defined inside another function, the inner function automatically has access to variables from the outer function</h3>
-            <ul>
-                <li>const outerFn = () => {<br>const x = 5<br> const innerFn = () => console.log(x)<br>innerFn()<br>}<br>outerFn() returns 5</li>
-                <li>const outerFn = () => {<br>const x = 5<br> const innerFn = () => console.log(x)<br>return innerFn()<br>}<br>const closureTest = outerFn()<br>closureTest returns () => console.log(x)<br>closureTest() returns 5<br>console.dir(closureTest) returns more information about innerFn</li>
-            </ul>
-        <h3>Callbacks and async computation</h3>
-            <h4>The Node Event Loop</h4>
+                <li>First-Class Functions: when a programming language supports treating functions like a variable (ex. functions can be assigned to variables, passed as args to other functions, used as return value of another function, etc)</li>
+                <li>Higher-Order Functions: function that takes another function as an argument or returns a function as its return value</li>
+                <li>Callback Functions: function that is passed to another function as an argument</li>
                 <ul>
-                    <li>JS and Node are single-threaded event loop rather than multi-threaded (multiple parallel operations can run in background)</li>
-                    <li>Node event loop gets incoming sequence of requests and will offload I/O (input/output) requests to system kernal (central program of operating system)</li>
-                    <li>then system kernel will let Node know to queue associated callbacks and then execute them via event loop</li>
-                    <li>basically delegates work out then finishes when the completed work is returned</li>
-                    <ol>6 phases of node event loop:</ol> 
-                        <li>timer phase: event loop executes callbacks scheduled by setTimeout() or setInterval() functions</li>
-                        <li>pending callbacks phase: deals with certain system-level error callbacks (not used)</li>
-                        <li>idle/prepare phase: used internally by Node (not used)</li>
-                        <li>poll phase: processes a queue of callbacks, once queue is empty, waits to handle any new requests or timers</li>
-                        <li>check phase: handles callbacks from setImmediate() timer function when queue in poll phase is empty</li>
-                        <li>close callbacks phase: handles emitting the 'close' event if a socket or handle is closed abruptly (not used)</li>
+                    <li>commonly used for asynchronous code</li>
+                    <li>callback passed into a function as an argument and waits for async operation (ex. setTimeout or fetch data) to finish before callback is executed</li>
                 </ul>
+            </ul>
+        <h4>Closures</h4>
+            <ul>
+                <li>Closures: when a function is defined inside another function, the inner function automatically has access to variables from the outer function</li>
+                <ul>
+                    <li>const outerFn = () => {<br>const x = 5<br> const innerFn = () => console.log(x)<br>innerFn()<br>}<br>outerFn() returns 5</li>
+                    <li>const outerFn = () => {<br>const x = 5<br> const innerFn = () => console.log(x)<br>return innerFn()<br>}<br>const closureTest = outerFn()<br>closureTest returns () => console.log(x)<br>closureTest() returns 5<br>console.dir(closureTest) returns more information about innerFn</li>
+                </ul>
+            </ul>
+        <h4>The Node Event Loop</h4>
+            <ul>
+                <li>JS and Node are single-threaded event loop rather than multi-threaded (multiple parallel operations can run in background)</li>
+                <li>Node event loop gets incoming sequence of requests and will offload I/O (input/output) requests to system kernal (central program of operating system)</li>
+                <li>then system kernel will let Node know to queue associated callbacks and then execute them via event loop</li>
+                <li>basically delegates work out then finishes when the completed work is returned</li>
+                <ol>6 phases of node event loop:</ol> 
+                    <li>timer phase: event loop executes callbacks scheduled by setTimeout() or setInterval() functions</li>
+                    <li>pending callbacks phase: deals with certain system-level error callbacks (not used)</li>
+                    <li>idle/prepare phase: used internally by Node (not used)</li>
+                    <li>poll phase: processes a queue of callbacks, once queue is empty, waits to handle any new requests or timers</li>
+                    <li>check phase: handles callbacks from setImmediate() timer function when queue in poll phase is empty</li>
+                    <li>close callbacks phase: handles emitting the 'close' event if a socket or handle is closed abruptly (not used)</li>
+            </ul>
+    <h2>Node and HTTP</h2>
+        <h3>Node HTTP Module</h3>
+            <ul>
+                <li>use http.createServer() to create a new instance of http.Server class and provide callback function (request handler) as param</li>
+                <li>when server is listening to requests, the request handler is called every time there is a new server request</li>
+                <li>then listen to requests using server.listen() with port number and hostname to listen on</li>
+                <li>request handler callback has 2 params: request (req) and response (res)</li>
+                <li>req: object that contains info about the request (headers, method, url, status, etc)</li>
+                <li>res: object that gets info for response (header, status code, etc)</li>
+                <li>res.write() to write message body and end with res.end() OR pass message body as arg in res.end()</li>
+            </ul>
+        <h3>Path and File System Modules</h3>
+            <ul>
+                <li>path: utilites for working with file and directory paths</li>
+                <ul>
+                    <li>ex. path.extname()- returns file extension, path.resolve()- converts relative path to absolute</li>
+                </ul>
+                <li>fs: utilites for interacting with local filesystem</li>
+                <ul>
+                    <li>ex. fs.access() check if a file can be accessed, fs.createReadStream()- reads small chunks of data in file</li>
+                </ul>
+            </ul>
+    <h2>Express</h2>
+        <h3>Express Server</h3>
+            <ul>
+                <li>Express: framework for building HTTP servers (one of the most popular server-side third party Node modules)</li>
+                <ul>
+                    <li>can be extended with 3rd party middleware for more functionality (ex. Morgan (logs info about server requests)</li>
+                    <li>built-in middleware (ex. express.json(): parse JSON-encoded HTTP request messages, express.static()- serve static files)</li>
+                </ul>
+            </ul>
+        <h3>NPM Packages</h3>
+            <ul>
+                <li>Semantic Versioning: eg: 4.17.1 Major Version.Minor Version.Patch</li>
+                <li>npm install express@4.17.1 (install specific version), npm install express (install latest one), npm install express@~4.17.1 (install latest patch within same minor version), npm install express@^4.17.1 (install latest patch or minor version within same major version, npm install (install all dependencies listed in package.json- good when looking at git repo)</li>
+                <li>package-lock.json: stores info about exact file tree generated whenever node_modules or package.json are changed --> npm install will install the versions listed in package-lock.json</li>
+            </ul>
+        <h3>Express Router</h3>
+            <ul>
+                <li>express routing methods; app.get(), app.post(), app.put(), app.delete(), etc</li>
+                <ul>
+                    <li>required params: path and callback function</li>
+                    <li>app.get('/campsites', (req, res, next) => {}</li>
+                    <li>endpoint: path + HTTP method (ex. ^ get request to campsites path)</li>
+                    <li>route parameters: to handle dynamic request with more specific endpoint, can access string through req.params</li>
+                    <li>app.get('/campsites/:campsiteId', (req, res, next) => {}</li>
+                    <li>GET request for /campsites/23 --> store '23' as value for req.params.campsiteId</li>
+                </ul>
+                <li>express.json()</li>
+                <ul>
+                    <li>GET- simple (read) operation (server responds with requested data)</li>
+                    <li>POST or PUT- more complex (write) operation (request message body contains data that server needs to parse)</li>
+                    <li>built-in express.json() middleware automatically parses JSON data into properties of the req.body JS object for easy access to data</li>
+                </ul>
+                <li>Express Router</li>
+                <ul>
+                    <li>to subdivide routing into multiple modules when handling endpoints for multiple paths</li>
+                    <li>ex. use router module campsiteRouter to deal with all requests that have path starting with '/campsites'</li>
+                </ul>
+            </ul>
 </body>
 </html>
