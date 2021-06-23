@@ -23,12 +23,22 @@
             <li>Other programming languages (C, C++, Java, etc) designed with libraries to access underlying hardware and structure to take code from multiple files and combine together into a single application</li>
             <li>JS originally designed for browser scripts, but not used for full-fledged apps (in and out of browser)</li>
             <ul>
-                <li>CommonJS created to define module format for JS apps --> foundation of Node and NPM</li>
+                <li>CommonJS created to define module format for JS apps -> foundation of Node and NPM</li>
             </ul>
             <li>3 node modules categories</li>
             <ol>
                 <li>External, 3rd party modules: installed using NPM to node_modules folder</li>
-                <li>Node core modules: built into Node (don't need to be installed) and include path, fs (filesystem), OS, util, etc</li>
+                <ul>
+                    <li>install with npm or yarn or another Node package manager</li>
+                    <li>import using require or ES import, module name without path (ex. const express = require('express'))</li>
+                    <li>installed into node_modules as packages and in package.json with version and dependencies</li>
+                </ul>
+                <li>Node core modules: built into Node (don't need to be installed)</li>
+                <ul>
+                    <li>ex. path, fs (filesystem), OS, util, etc</li>
+                    <li>import with CommonJS, require(), or ES6 function, without a path (ex. const http = require('http')- common naming convention to name const the same as the module name)</li>
+                    <li>intentionally kept lightweight to encourage third-party innovation</li>
+                </ul>
                 <li>File-based modules within our app: make JS file within app into module by exporting code from it (module.exports/require)</li>
                 <ul>
                     <li>example.js: exports.double = x => x * 2</li>
@@ -70,19 +80,27 @@
                     <li>close callbacks phase: handles emitting the 'close' event if a socket or handle is closed abruptly (not used)</li>
             </ul>
     <h2>Node and HTTP</h2>
-        <h3>Node HTTP Module</h3>
+        <h3>Node Callback Pattern</h3>
+        <ul>
+            <li></li>
+        </ul>
+        <h3>Node HTTP Core Module</h3>
             <ul>
                 <li>use http.createServer() to create a new instance of http.Server class and provide callback function (request handler) as param</li>
                 <li>when server is listening to requests, the request handler is called every time there is a new server request</li>
                 <li>then listen to requests using server.listen() with port number and hostname to listen on</li>
                 <li>request handler callback has 2 params: request (req) and response (res)</li>
+                <li>Objects are Streams- represent data sent in smaller chunks rather than all at once</li>
                 <li>req: object that contains info about the request (headers, method, url, status, etc)</li>
                 <li>res: object that gets info for response (header, status code, etc)</li>
                 <li>res.write() to write message body and end with res.end() OR pass message body as arg in res.end()</li>
+                <li>HTTP module itself isn't very strong, but adding Express increases functionality (ex. parsing JSON)</li>
+                <li>http.creaeServer()</li>
+                <li>server.listen(port, hostname)- start listening to server and optionally provide post and/or hostname</li>
             </ul>
-        <h3>Path and File System Modules</h3>
+        <h3>Path and File System Core Modules</h3>
             <ul>
-                <li>path: utilites for working with file and directory paths</li>
+                <li>path: utilites for locating/working with file and directory paths</li>
                 <ul>
                     <li>ex. path.extname()- returns file extension, path.resolve()- converts relative path to absolute</li>
                 </ul>
@@ -91,6 +109,12 @@
                     <li>ex. fs.access() check if a file can be accessed, fs.createReadStream()- reads small chunks of data in file</li>
                 </ul>
             </ul>
+        <h3>Other core modules</h3>
+            <ul>
+                <li>process: global module (don't need to require or install) provides info about and control over the current Node.js process</li>
+                <li>url: provides utilities for URL resolution and parsing</li>
+                <li>os: provides operating system related utility methods and properties</li>
+            </ul>
     <h2>Express</h2>
         <h3>Express Server</h3>
             <ul>
@@ -98,24 +122,32 @@
                 <ul>
                     <li>can be extended with 3rd party middleware for more functionality (ex. Morgan (logs info about server requests)</li>
                     <li>built-in middleware (ex. express.json(): parse JSON-encoded HTTP request messages, express.static()- serve static files)</li>
+                    <li>const express = require('express')<br>const app = express()<br>app.listen(post, hostname)</li>
                 </ul>
             </ul>
         <h3>NPM Packages</h3>
             <ul>
                 <li>Semantic Versioning: eg: 4.17.1 Major Version.Minor Version.Patch</li>
                 <li>npm install express@4.17.1 (install specific version), npm install express (install latest one), npm install express@~4.17.1 (install latest patch within same minor version), npm install express@^4.17.1 (install latest patch or minor version within same major version, npm install (install all dependencies listed in package.json- good when looking at git repo)</li>
-                <li>package-lock.json: stores info about exact file tree generated whenever node_modules or package.json are changed --> npm install will install the versions listed in package-lock.json</li>
+                <li>package-lock.json: stores info about exact file tree generated whenever node_modules or package.json are changed -> npm install will install the versions listed in package-lock.json</li>
             </ul>
-        <h3>Express Router</h3>
+        <h3>Express Middleware</h3>
+            <ul>
+                <li>Middleware libraries- built into Express (ex. express.static for handling static files) and 3rd party libraries that need to be installed (ex/ morgan)</li>
+                <ul>
+                    <li>const express = require('express')<br>const morgan = require('morgan')<br>const app = express()<br>app.use(morgan('dev'))</li>
+                </ul>
+            </ul>
+        <h3>Express Routing Methods</h3>
             <ul>
                 <li>express routing methods; app.get(), app.post(), app.put(), app.delete(), etc</li>
                 <ul>
-                    <li>required params: path and callback function</li>
+                    <li>required params: path and callback function (req, res) next() (optional) function to pass control to next appropriate routing method</li>
                     <li>app.get('/campsites', (req, res, next) => {}</li>
                     <li>endpoint: path + HTTP method (ex. ^ get request to campsites path)</li>
-                    <li>route parameters: to handle dynamic request with more specific endpoint, can access string through req.params</li>
+                    <li>route parameters: to handle dynamic request with more specific endpoint, can access string value through req.params</li>
                     <li>app.get('/campsites/:campsiteId', (req, res, next) => {}</li>
-                    <li>GET request for /campsites/23 --> store '23' as value for req.params.campsiteId</li>
+                    <li>GET request for /campsites/23 -> store '23' as value for req.params.campsiteId</li>
                 </ul>
                 <li>express.json()</li>
                 <ul>
@@ -125,9 +157,14 @@
                 </ul>
                 <li>Express Router</li>
                 <ul>
-                    <li>to subdivide routing into multiple modules when handling endpoints for multiple paths</li>
+                    <li>createRouter()- to subdivide routing into multiple modules when handling endpoints for multiple paths</li>
                     <li>ex. use router module campsiteRouter to deal with all requests that have path starting with '/campsites'</li>
                 </ul>
+            </ul>
+        <h3>Express Generator</h3>
+            <ul>
+                <li>express &gt;application name&lt; generate starter Express app with standard code and commonly used middleware included</li>
+                <li></li>
             </ul>
 </body>
 </html>
